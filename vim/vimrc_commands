@@ -11,4 +11,6 @@ command VimBundles   :e ~/dotiles/dotfiles/vim_bundles
 command VimNT :NERDTree ~/dotiles/.vim
 
 " easily get to bashrc
-command Bashrc :e ~/dotiles/.bashrc
+command Bashrc :e ~/dotiles/bash/bashrc
+
+command Zshrc :e ~/dotiles/zsh/zshrc
