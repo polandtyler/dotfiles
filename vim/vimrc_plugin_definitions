@@ -47,6 +47,8 @@ if &loadplugins
 
   Plugin 'tpope/vim-markdown'
   Plugin 'itspriddle/vim-marked.git'
+
+  Plugin 'junegunn/vim-easy-align'
 endif
 
 " All of your Plugins must be added before the following line
