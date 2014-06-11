@@ -9,3 +9,4 @@ vim/bundle/*
 vim/vim
 Gemfile.lock
 vim_bundles.lock
+zsh/zsh_local

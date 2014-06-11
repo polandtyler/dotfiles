@@ -14,3 +14,7 @@ if [ -f ~/dotfiles/zsh/zsh_functions ] ; then
   . ~/dotfiles/zsh/zsh_functions
 fi
 
+if [ -f ~/dotfiles/zsh/zsh_local ] ; then
+  . ~/dotfiles/zsh/zsh_local
+fi
+
