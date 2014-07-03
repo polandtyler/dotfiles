@@ -1,4 +1,4 @@
-bindkey '^R' history-incremental-pattern-search-backward
+# bindkey '^R' history-incremental-pattern-search-backward
 
 ############################################################
 ## Git
@@ -28,3 +28,4 @@ alias tmux="tmux -2"
 alias resource=". ~/.zshrc"
 alias "ct"="colorize"
 alias redis="redis-server /usr/local/etc/redis.conf"
+alias v="vagrant"

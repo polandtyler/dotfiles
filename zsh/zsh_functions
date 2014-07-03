@@ -1,5 +1,5 @@
 # Add vi mode support
-set -o vi
+# set -o vi
 function zle-keymap-select zle-line-init
 {
     # change cursor shape in iTerm2
