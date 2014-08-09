@@ -24,6 +24,9 @@ if &loadplugins
   Plugin 'tpope/vim-git.git'
   Plugin 'tpope/vim-vividchalk.git'
 
+  Plugin 'elzr/vim-json'
+  Plugin 'tpope/vim-surround'
+
   Plugin 'bling/vim-airline'
 
   Plugin 'vim-scripts/AutoClose.git'
@@ -49,6 +52,11 @@ if &loadplugins
   Plugin 'itspriddle/vim-marked.git'
 
   Plugin 'junegunn/vim-easy-align'
+  Plugin 'fatih/vim-go'
+
+  Plugin 'kana/vim-textobj-user'
+  Plugin 'kana/vim-textobj-function'
+  Plugin 'thinca/vim-textobj-function-javascript'
 endif
 
 " All of your Plugins must be added before the following line
