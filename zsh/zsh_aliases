@@ -29,6 +29,7 @@ alias resource=". ~/.zshrc"
 alias "ct"="colorize"
 alias redis="redis-server /usr/local/etc/redis.conf"
 alias v="vagrant"
+alias hipidle="~/dotfiles/scripts/idle"
 
 alias nbun=nodemon_wrapper
 
