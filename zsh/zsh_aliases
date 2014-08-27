@@ -29,3 +29,9 @@ alias resource=". ~/.zshrc"
 alias "ct"="colorize"
 alias redis="redis-server /usr/local/etc/redis.conf"
 alias v="vagrant"
+
+alias nbun=nodemon_wrapper
+
+nodemon_wrapper(){
+  nodemon $1 | bunyan
+}

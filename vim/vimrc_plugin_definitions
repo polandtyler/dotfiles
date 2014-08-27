@@ -57,6 +57,8 @@ if &loadplugins
   Plugin 'kana/vim-textobj-user'
   Plugin 'kana/vim-textobj-function'
   Plugin 'thinca/vim-textobj-function-javascript'
+
+  Plugin 'tpope/vim-abolish'
 endif
 
 " All of your Plugins must be added before the following line
