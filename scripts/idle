@@ -36,6 +36,6 @@ mousemove(int(currentpos.x),int(currentpos.y));
 END"
 EOF
 
-sleep 299
+sleep 100
 echo 'Hipchat hooray...ho...'
 done
