@@ -8,8 +8,6 @@
 """"""""""""""""""
 " NerdTree Plugin
 """"""""""""""""""
-command NT :NERDTreeToggle
-command NTF :NERDTreeFind
 
 " Use instead of Netrw when doing an edit /foobar
 let NERDTreeHijackNetrw=1
@@ -17,8 +15,9 @@ let NERDTreeHijackNetrw=1
 let NERDTreeMouseMode=1
 " Show hidden files by default
 let NERDTreeShowHidden=1
-" Hide javascript files in nerdtree
-command Nojs :let NERDTreeIgnore=[".js$"]
+" Hide .pyc and __init__.py files
+let NERDTreeIgnore = ['\.pyc$', '__init__.py']
+
 nmap <silent> <leader><Tab> :NERDTreeToggle<CR>
 nmap <silent> <leader>n :NERDTreeFind<CR>
 
