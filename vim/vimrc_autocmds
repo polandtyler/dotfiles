@@ -11,6 +11,8 @@ autocmd BufEnter *.js set updatetime=10
 " do not extend comments when opening a new line
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
+autocmd FileType go set listchars=tab:  ,trail:·
+
 function! s:StripWhiteSpaces()
   let save_cursor = getpos(".")
   let old_query = getreg('/')
