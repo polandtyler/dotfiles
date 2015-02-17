@@ -26,8 +26,6 @@ if &loadplugins
   Plugin 'elzr/vim-json'
   Plugin 'tpope/vim-surround'
 
-  Plugin 'wting/rust.vim'
-
   Plugin 'bling/vim-airline'
 
   Plugin 'vim-scripts/AutoClose.git'
@@ -47,8 +45,10 @@ if &loadplugins
   " Plugin 'Valloric/YouCompleteMe.git'
   Plugin 'christoomey/vim-tmux-navigator.git'
 
+  Plugin 'wting/rust.vim'
   Plugin 'pangloss/vim-javascript.git'
   Plugin 'jelera/vim-javascript-syntax.git'
+  Plugin 'klen/python-mode'
 
   Plugin 'tpope/vim-markdown'
   Plugin 'itspriddle/vim-marked.git'
