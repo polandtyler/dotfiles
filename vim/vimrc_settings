@@ -36,6 +36,8 @@ set relativenumber              " sets the numbers on the side to be relative to
 set number
 " set numberwidth=4
 
+set colorcolumn=80              " add 80 width marker so people won't point out useless comments in my js commits
+
 set sidescrolloff=2
 set scrolloff=2
 set laststatus=2                " always show status line

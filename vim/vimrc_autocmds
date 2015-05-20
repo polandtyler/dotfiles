@@ -12,7 +12,7 @@ autocmd BufEnter *.js set updatetime=10
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 autocmd FileType go set listchars=tab:  ,trail:·
-autocmd FileType python set colorcolumn=80
+" autocmd FileType python set colorcolumn=80
 
 function! s:StripWhiteSpaces()
   let save_cursor = getpos(".")

@@ -6,10 +6,6 @@ if [ -d ~/bin ] ; then
   PATH="~/bin:${PATH}"
 fi
 
-if [ -d /usr/local/bin ] ; then
-  PATH="/usr/local/bin:${PATH}"
-fi
-
 if [ -d /usr/local/sbin ] ; then
   PATH="${PATH}:/usr/local/sbin"
 fi
@@ -22,6 +18,10 @@ fi
 
 if [ -d $HOME/go/bin ]; then
   PATH="$HOME/go/bin:$PATH"
+fi
+
+if [ -d /usr/local/bin ] ; then
+  PATH="${PATH}:/usr/local/bin"
 fi
 
 PATH=.:${PATH}
@@ -58,8 +58,6 @@ export ANSIBLE_COW_SELECTION="stegosaurus"
 export GOPATH="$HOME/go"
 export DOCKER_HOST='tcp://127.0.0.1:2375'
 export DOCKER_IP='127.0.0.1'
-export ANDROID_HOME='/Applications/AndroidStudio.app/sdk'
-export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 
 ############################################################
 ## VAGRANT
