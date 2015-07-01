@@ -11,6 +11,7 @@ autocmd BufEnter *.js set updatetime=10
 " do not extend comments when opening a new line
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
+autocmd BufWritePost,FileWritePost *.go execute 'GoLint' | cwindow
 autocmd FileType go set listchars=tab:  ,trail:·
 " autocmd FileType python set colorcolumn=80
 

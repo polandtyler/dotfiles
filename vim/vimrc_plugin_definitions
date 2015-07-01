@@ -11,17 +11,12 @@ if &loadplugins
   " let Vundle manage Vundle, required
   Plugin 'gmarik/Vundle.vim'
 
-  Plugin 'xolox/vim-misc'
+  Plugin 'airblade/vim-gitgutter'
 
   Plugin 'scrooloose/nerdtree.git'
   Plugin 'nathanaelkane/vim-indent-guides.git'
-  Plugin 'gregsexton/gitv.git'
-
-  " Plugin 'tsaleh/vim-matchit.git'
 
   Plugin 'tpope/vim-fugitive.git'
-  Plugin 'tpope/vim-git.git'
-  Plugin 'tpope/vim-vividchalk.git'
 
   Plugin 'elzr/vim-json'
   Plugin 'tpope/vim-surround'
@@ -29,20 +24,17 @@ if &loadplugins
   Plugin 'bling/vim-airline'
 
   Plugin 'vim-scripts/AutoClose.git'
-  Plugin 'vim-scripts/AutoTag.git'
   Plugin 'vim-scripts/tComment.git'
-  Plugin 'vim-scripts/Gist.vim.git'
   Plugin 'vim-scripts/ReplaceWithRegister.git'
 
   Plugin 'vim-scripts/YankRing.vim.git'
-  Plugin 'sjl/gundo.vim.git'
   Plugin 'scrooloose/syntastic.git'
   Plugin 'altercation/vim-colors-solarized.git'
-  Plugin 'nanotech/jellybeans.vim.git'
+
   Plugin 'kien/ctrlp.vim.git'
   Plugin 'tacahiroy/ctrlp-funky'
 
-  " Plugin 'Valloric/YouCompleteMe.git'
+  Plugin 'Valloric/YouCompleteMe.git'
   Plugin 'christoomey/vim-tmux-navigator.git'
 
   Plugin 'wting/rust.vim'
@@ -60,7 +52,7 @@ if &loadplugins
   Plugin 'kana/vim-textobj-function'
   Plugin 'thinca/vim-textobj-function-javascript'
 
-  Plugin 'tpope/vim-abolish'
+  Plugin 'ekalinin/Dockerfile.vim'
 endif
 
 " All of your Plugins must be added before the following line
