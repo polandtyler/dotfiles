@@ -69,7 +69,11 @@ map <C-right> <C-W><right>
 map <C-J> <C-W>j
 map <C-K> <C-W>k
 map <C-H> <C-W>h
-map <C-L> <C-W>l
+map <C-l> <C-W>l
+
+if has('nvim')
+  nmap <BS> <C-w>h
+endif
 
 " <F7> toggles hidden characters
 map  <F7> :set list!<CR>

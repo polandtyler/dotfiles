@@ -33,6 +33,8 @@ alias hipidle="~/dotfiles/scripts/idle"
 
 alias nbun=nodemon_wrapper
 
+alias vim=nvim
+
 nodemon_wrapper(){
   nodemon $1 | bunyan
 }

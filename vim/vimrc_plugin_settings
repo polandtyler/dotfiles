@@ -165,4 +165,7 @@ function! EnterAlign()
   call setpos('.', save_cursor)
 endfunction
 
-
+"""""""""""""""""
+" vim-go
+"""""""""""""""""
+let g:go_fmt_command = "goimports"

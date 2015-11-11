@@ -34,7 +34,7 @@ if &loadplugins
   Plugin 'kien/ctrlp.vim.git'
   Plugin 'tacahiroy/ctrlp-funky'
 
-  Plugin 'Valloric/YouCompleteMe.git'
+  " Plugin 'Valloric/YouCompleteMe.git'
   Plugin 'christoomey/vim-tmux-navigator.git'
 
   Plugin 'wting/rust.vim'

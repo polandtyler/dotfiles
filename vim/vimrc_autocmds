@@ -1,21 +1,20 @@
 " associate Dockerfile with sh filetype syntax
 autocmd BufRead,BufNewFile Dockerfile setfiletype sh
+
 " associate .conf files with upstart filetype syntqx
 autocmd BufRead,BufNewFile *.conf set filetype=upstart
+
 " javascript uses 2 spaces everywhere
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
-" call nodejs-man command line program for core docs keyword lookup
-autocmd BufReadPost *.js   set keywordprg=nodejs-man
 
-autocmd BufEnter *.js set updatetime=10
 " do not extend comments when opening a new line
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
-autocmd BufWritePost,FileWritePost *.go execute 'GoLint' | cwindow
-autocmd FileType go set listchars=tab:  ,trail:·
-" autocmd FileType python set colorcolumn=80
-
 function! s:StripWhiteSpaces()
+  if exists('b:noStripWhitespace')
+    return
+  endif
+
   let save_cursor = getpos(".")
   let old_query = getreg('/')
   :%s/\s\+$//e
@@ -23,6 +22,27 @@ function! s:StripWhiteSpaces()
   call setreg('/', old_query)
 endfunction
 
+autocmd Filetype t let b:noStripWhitespace=1
 autocmd BufWritePre * StripWhiteSpace
 command! -range=% StripWhiteSpaces :silent call <SID>StripWhiteSpaces()
 
+"Go specific settings
+autocmd FileType go nmap <leader>in <Plug>(go-info)
+autocmd FileType go nmap <leader>im <Plug>(go-implements)
+autocmd FileType go nmap <leader>p <Plug>(go-referrers)
+autocmd FileType go nmap <leader>gd <Plug>(go-doc)
+autocmd FileType go nmap <leader>gb <Plug>(go-doc-browser)
+autocmd FileType go nmap <leader>gs <Plug>(go-doc-split)
+autocmd FileType go nmap <leader>gv <Plug>(go-doc-vertical)
+autocmd FileType go nmap <leader>gt <Plug>(go-doc-tab)
+autocmd FileType go nmap <leader>r <Plug>(go-run)
+autocmd FileType go nmap <leader>b <Plug>(go-build)
+autocmd FileType go nmap <leader>t <Plug>(go-test)
+" autocmd FileType go nmap <leader>c <Plug>(go-coverage)
+autocmd FileType go nmap <leader>dd <Plug>(go-def)
+autocmd FileType go nmap <leader>ds <Plug>(go-def-split)
+autocmd FileType go nmap <leader>dv <Plug>(go-def-vertical)
+autocmd FileType go nmap <leader>dt <Plug>(go-def-tab)
+autocmd FileType go nmap <leader>e <Plug>(go-rename)
+autocmd FileType go nmap <leader>I :GoImports<CR>
+autocmd FileType go set listchars=tab:  ,trail:·
