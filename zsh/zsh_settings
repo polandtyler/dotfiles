@@ -8,29 +8,7 @@ ZSH_THEME="asimple"
 # Plugins
 #  Example format: plugins=(rails git textmate ruby lighthouse)
 ########################
-plugins=(brew docker git tmux vagrant zsh-syntax-highlighting autojump)
+plugins=(brew docker zsh-syntax-highlighting autojump)
 
 # This has to be after plugins, just trust me
 source $ZSH/oh-my-zsh.sh
-
-############################################################
-## Possibly useful settings
-############################################################
-
-
-# Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment following line if you want to disable command autocorrection
-# DISABLE_CORRECTION="true"
-
-# Uncomment following line if you want to disable marking untracked files under
-# VCS as dirty. This makes repository status check for large repositories much,
-# much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment following line if you want to  shown in the command execution time stamp
-# in the history command output. The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|
-# yyyy-mm-dd
-# HIST_STAMPS="mm/dd/yyyy"
-
