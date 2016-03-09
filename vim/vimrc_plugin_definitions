@@ -27,14 +27,21 @@ if &loadplugins
   Plugin 'vim-scripts/tComment.git'
   Plugin 'vim-scripts/ReplaceWithRegister.git'
 
+  Plugin 'fatih/vim-go'
+
   Plugin 'vim-scripts/YankRing.vim.git'
-  Plugin 'scrooloose/syntastic.git'
+  " Plugin 'scrooloose/syntastic.git'
+  Plugin 'benekastah/neomake'
   Plugin 'altercation/vim-colors-solarized.git'
 
   Plugin 'kien/ctrlp.vim.git'
   Plugin 'tacahiroy/ctrlp-funky'
 
-  " Plugin 'Valloric/YouCompleteMe.git'
+  if has('python')
+  " only installed YouComplete if vim is compiled with python support.
+    Plugin 'Valloric/YouCompleteMe'
+  endif
+
   Plugin 'christoomey/vim-tmux-navigator.git'
 
   Plugin 'wting/rust.vim'
@@ -46,7 +53,6 @@ if &loadplugins
   Plugin 'itspriddle/vim-marked.git'
 
   Plugin 'junegunn/vim-easy-align'
-  Plugin 'fatih/vim-go'
 
   Plugin 'kana/vim-textobj-user'
   Plugin 'kana/vim-textobj-function'

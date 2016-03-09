@@ -25,18 +25,6 @@ nmap <silent> <leader>n :NERDTreeFind<CR>
 let g:loaded_AlignMapsPlugin = 1
 
 """"""""""""""""""
-" Git Plugin
-""""""""""""""""""
-" Git interaction
-nmap gs :Gstatus<CR>
-nmap gb :Gblame<CR>
-" Gitv browser mode (shows git log for repo)
-nmap gl :Gitv --all<CR>
-" Gitv file mode (shows git history for current file)
-nmap gL :Gitv! --all<CR>
-vmap gL :Gitv! --all<CR>
-
-""""""""""""""""""
 " IndentGuides plugin
 """"""""""""""""""
 let g:indent_guides_guide_size  = 1
@@ -73,7 +61,12 @@ let g:AutoClosePairs = {'(': ')', '{': '}', '[': ']', '"': '"'}
 
 nmap <F2> :OpenSession<CR>
 
+""""""""""""""""""
+" Airline config
+""""""""""""""""""
+
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#hunks#enabled = 0
 
 """"""""""""""""""
 " Fix CtrlP command
@@ -114,6 +107,7 @@ nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
 " YouCompleteMe settings
 """""""""""""""""
 let g:ycm_min_num_of_chars_for_completion = 1
+set completeopt-=preview
 
 """""""""""""""""
 " Tern settings
@@ -123,8 +117,6 @@ let g:tern_show_argument_hints='on_delay'
 " and http://usevim.com/files/tern_keyboard.pdf
 let g:tern_map_keys=1
 
-" Make changes to read-only system files with the :w!! command
-cmap w!! %!sudo tee > /dev/null &
 let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|**/components/'
 " ignored paths for ctrl-p bundle
@@ -137,19 +129,26 @@ let g:markdown_fenced_languages = ['bash=sh', 'css', 'erb=eruby', 'javascript',
     \ 'js=javascript', 'json=javascript', 'ruby', 'sass', 'sh', 'xml']
 
 """""""""""""""""
+" Neomake Settings
+"""""""""""""""""
+let g:neomake_javascript_enabled_makers = ['standard']
+autocmd! BufWritePost * Neomake
+
+"""""""""""""""""
 " Syntastic Settings
 """""""""""""""""
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_javascript_checkers = ['eslint']
-" Enable syntastic syntax checking
-let g:syntastic_enable_signs=1
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_javascript_checkers = ['standard']
+" " Enable syntastic syntax checking
+" let g:syntastic_enable_signs=1
 " let g:syntastic_quiet_messages = {'level': 'warnings'}
-let g:syntastic_auto_loc_list=2
-" show automatically and close when no rors are found
-let g:syntastic_loc_list_height=5
-
-let g:syntastic_mode_map = { 'mode': 'active',
-      \ 'active_filetypes': ['ruby', 'php', 'javascript'] }
+" let g:syntastic_auto_loc_list=2
+" " show automatically and close when no rors are found
+" let g:syntastic_loc_list_height=5
+" let g:syntastic_aggregate_errors = 1
+" let g:syntastic_mode_map = { 'mode': 'active',
+"       \ 'active_filetypes': ['go', 'javascript'] }
+" let g:syntastic_stl_format = '[%pe line:%fe]'
 
 """""""""""""""""
 " Vim-Easy-Align Settings
@@ -169,3 +168,10 @@ endfunction
 " vim-go
 """""""""""""""""
 let g:go_fmt_command = "goimports"
+let g:go_def_mapping_enabled = 0
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_autodetect_gopath = 0
+
+set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim

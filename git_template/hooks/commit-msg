@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if head -n 1 $1 | grep '^Merge branch' >/dev/null; then
+	exit 0
+fi
+
+if head -n 1 $1 | grep '^[^]]*:\s*$' >/dev/null; then
+	exit 1
+fi
+
+if ! head -n 1 $1 | grep '^[^]]*:\s*' >/dev/null; then
+	echo Commit message missing branch identifier. >&2
+	exit 1
+fi

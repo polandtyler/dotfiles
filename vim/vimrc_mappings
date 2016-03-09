@@ -1,9 +1,6 @@
 " Key Mappings
 " ------------------------------------------------------------
 
-" Eval line of (V)im script
-nnoremap <Leader>V 0v$hy:<C-r>"<cr>
-
 "Vertical split then hop to new buffer
 noremap <Leader>v :vert new<cr>
 noremap <Leader>s :new<cr>
@@ -25,11 +22,6 @@ endfunction
 
 vnoremap <silent> <Leader>ac :call <SID>align_columns()<cr>
 
-" Bounce on (m)atching pairs without the awkward Shift-5 reach
-vmap m %
-nmap <Leader>m %
-omap <Leader>m %
-
 " make scrolling the viewport a bit faster
 nnoremap <C-e> 5<C-e>
 nnoremap <C-y> 5<C-y>
@@ -37,12 +29,6 @@ nnoremap <C-y> 5<C-y>
 " swap ' and ` keys. ` is more useful than ', but less convenient. FIXED.
 nnoremap ' `
 nnoremap ` '
-
-" tabs
-nnoremap <Leader>tt :tabnew<cr>
-nnoremap <Leader>tn :tabnext<cr>
-nnoremap <Leader>tp :tabprev<cr>
-nnoremap <Leader>tc :tabclose<cr>
 
 " Cursor Movement *************************************************************
 " Make cursor move by visual lines instead of file lines (when wrapping)
@@ -95,17 +81,7 @@ vmap <Leader>y y'>p
 vmap <Leader>Y y'>pgv<C-Space>'><CR>
 nmap <Leader>Y yypk<C-Space>j
 
-" Run macro (in q)
-nnoremap <Leader>q @q
-vnoremap <Leader>q :normal @q<cr>
-
 nnoremap <silent> <Space> :nohlsearch<cr>
-
-" Ack for word under cursor
-nnoremap <silent> <Leader>A yiw:Ack <C-r>"<cr>
-
-" opposite of join, splits on spaces
-nnoremap <Leader>J :s/ \+/\r/g \| nohlsearch<cr>
 
 " switch back to command mode using ctrl-c
 noremap <C-C> <Esc>
@@ -113,10 +89,6 @@ noremap <C-C> <Esc>
 " insert lines
 nnoremap <leader>o o<ESC>
 nnoremap <leader>O O<ESC>
-
-nnoremap <leader>S :source $HOME/dotfiles/vim/vimrc<cr>   " faster sourcing of vimrc
-nnoremap <leader>V :edit $HOME/dotfiles/vim/vimrc<cr>     " faster editing of vimrc
-nnoremap <leader>B :edit $HOME/dotfiles/bash/bashrc<cr>     " faster editing of bashrc
 
 " For easily finding erros
 nmap [l :lnext<cr>

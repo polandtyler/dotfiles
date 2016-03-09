@@ -4,9 +4,6 @@ autocmd BufRead,BufNewFile Dockerfile setfiletype sh
 " associate .conf files with upstart filetype syntqx
 autocmd BufRead,BufNewFile *.conf set filetype=upstart
 
-" javascript uses 2 spaces everywhere
-autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
-
 " do not extend comments when opening a new line
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
@@ -25,6 +22,12 @@ endfunction
 autocmd Filetype t let b:noStripWhitespace=1
 autocmd BufWritePre * StripWhiteSpace
 command! -range=% StripWhiteSpaces :silent call <SID>StripWhiteSpaces()
+
+"Javascript specific
+" javascript uses 2 spaces everywhere
+autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+autocmd bufwritepost *.js silent !standard % --format
+autocmd Filetype javascript set autoread
 
 "Go specific settings
 autocmd FileType go nmap <leader>in <Plug>(go-info)

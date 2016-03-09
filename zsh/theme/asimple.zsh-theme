@@ -5,7 +5,7 @@
 #
 
 git_p() {
-  echo $(git branch -v 2>/dev/null | head -n 1)
+  echo $(git branch -v 2>/dev/null | grep "*" | egrep -o '\*\s*\w*\s*\w*')
 }
 
 input_character() {
