@@ -27,10 +27,9 @@ if &loadplugins
   Plugin 'vim-scripts/tComment.git'
   Plugin 'vim-scripts/ReplaceWithRegister.git'
 
-  Plugin 'fatih/vim-go'
+  " Plugin 'fatih/vim-go'
 
   Plugin 'vim-scripts/YankRing.vim.git'
-  " Plugin 'scrooloose/syntastic.git'
   Plugin 'benekastah/neomake'
   Plugin 'altercation/vim-colors-solarized.git'
 
@@ -40,6 +39,7 @@ if &loadplugins
   if has('python')
   " only installed YouComplete if vim is compiled with python support.
     Plugin 'Valloric/YouCompleteMe'
+    Plugin 'klen/python-mode'
   endif
 
   Plugin 'christoomey/vim-tmux-navigator.git'
@@ -47,7 +47,6 @@ if &loadplugins
   Plugin 'wting/rust.vim'
   Plugin 'pangloss/vim-javascript.git'
   Plugin 'jelera/vim-javascript-syntax.git'
-  Plugin 'klen/python-mode'
 
   Plugin 'tpope/vim-markdown'
   Plugin 'itspriddle/vim-marked.git'
