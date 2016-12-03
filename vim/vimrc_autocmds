@@ -1,11 +1,19 @@
-" associate Dockerfile with sh filetype syntax
-autocmd BufRead,BufNewFile Dockerfile setfiletype sh
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" DECLARE FUNCTIONS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" associate .conf files with upstart filetype syntqx
-autocmd BufRead,BufNewFile *.conf set filetype=upstart
+let g:shouldFormatPython = 1
 
-" do not extend comments when opening a new line
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+function! FormatPython()
+  if g:shouldFormatPython == 1
+    if $VIRTUAL_ENV != ""
+      !$VIRTUAL_ENV/bin/yapf % -i
+    else
+      !yapf % -i
+    endif
+    redraw
+  endif
+endfunction
 
 function! s:StripWhiteSpaces()
   if exists('b:noStripWhitespace')
@@ -18,6 +26,21 @@ function! s:StripWhiteSpaces()
   call setpos('.', save_cursor)
   call setreg('/', old_query)
 endfunction
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" END FUNCTION DECLARATIONS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" associate Dockerfile with sh filetype syntax
+autocmd BufRead,BufNewFile Dockerfile setfiletype sh
+
+" associate .conf files with upstart filetype syntqx
+autocmd BufRead,BufNewFile *.conf set filetype=upstart
+
+" do not extend comments when opening a new line
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+autocmd BufWritePost *.py :silent call FormatPython()
 
 autocmd Filetype t let b:noStripWhitespace=1
 autocmd BufWritePre * StripWhiteSpace

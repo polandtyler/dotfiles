@@ -8,8 +8,8 @@ alias ga="git add"
 alias gc="git commit"
 alias gd="git diff"
 alias gst="git status"
-alias gpt="git push --follow-tags"
-alias gbr="git branch"
+# alias gpt="git push --follow-tags"
+alias gb="git branch"
 alias gco="git checkout"
 
 ############################################################

@@ -18,3 +18,6 @@ if [ -f ~/dotfiles/zsh/zsh_local ] ; then
   . ~/dotfiles/zsh/zsh_local
 fi
 
+
+export NVM_DIR="/Users/avi/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

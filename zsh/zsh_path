@@ -47,8 +47,8 @@ export EDITOR="/usr/local/bin/vim --noplugins"
 export VISUAL="/usr/local/bin/vim --noplugins"
 export ANSIBLE_COW_SELECTION="stegosaurus"
 export GOPATH="$HOME/go"
-export DOCKER_HOST='tcp://127.0.0.1:2375'
-export DOCKER_IP='127.0.0.1'
+# export DOCKER_HOST='tcp://127.0.0.1:2375'
+# export DOCKER_IP='127.0.0.1'
 
 ############################################################
 ## VAGRANT

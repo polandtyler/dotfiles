@@ -8,6 +8,10 @@ ZSH_THEME="asimple"
 # Plugins
 #  Example format: plugins=(rails git textmate ruby lighthouse)
 ########################
+
+# Don't forget to install zsh-syntax-highlighting
+# https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md
+
 plugins=(brew docker zsh-syntax-highlighting autojump)
 
 # This has to be after plugins, just trust me

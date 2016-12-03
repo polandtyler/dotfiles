@@ -38,8 +38,9 @@ if &loadplugins
 
   if has('python')
   " only installed YouComplete if vim is compiled with python support.
-    Plugin 'Valloric/YouCompleteMe'
-    Plugin 'klen/python-mode'
+    " Plugin 'Valloric/YouCompleteMe'
+    " Plugin 'klen/python-mode'
+    Plugin 'pignacio/vim-yapf-format'
   endif
 
   Plugin 'christoomey/vim-tmux-navigator.git'
@@ -58,6 +59,7 @@ if &loadplugins
   Plugin 'thinca/vim-textobj-function-javascript'
 
   Plugin 'ekalinin/Dockerfile.vim'
+  Plugin 'digitaltoad/vim-pug'
 endif
 
 " All of your Plugins must be added before the following line
