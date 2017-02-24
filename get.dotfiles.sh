@@ -5,9 +5,9 @@
 #
 # Easy run:
 #
-#   curl https://raw.github.com/wasbazi/dotfiles/master/get.dotfiles.sh | sh
+#   curl https://raw.github.com/polandtyler/dotfiles/master/get.dotfiles.sh | sh
 
-REPO_OWNER="wasbazi"
+REPO_OWNER="polandtyler"
 REPO_HOST="github.com"
 REPO_NAME="dotfiles"
 REPO_DIR=~/$REPO_NAME
