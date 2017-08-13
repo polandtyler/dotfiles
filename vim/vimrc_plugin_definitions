@@ -48,6 +48,7 @@ if &loadplugins
   Plugin 'wting/rust.vim'
   Plugin 'pangloss/vim-javascript.git'
   Plugin 'jelera/vim-javascript-syntax.git'
+  Plugin 'mxw/vim-jsx'
 
   Plugin 'tpope/vim-markdown'
   Plugin 'itspriddle/vim-marked.git'
@@ -60,6 +61,8 @@ if &loadplugins
 
   Plugin 'ekalinin/Dockerfile.vim'
   Plugin 'digitaltoad/vim-pug'
+  Plugin 'hashivim/vim-terraform'
+  Plugin 'nathanielc/vim-tickscript'
 endif
 
 " All of your Plugins must be added before the following line

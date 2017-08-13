@@ -72,3 +72,5 @@ autocmd FileType go nmap <leader>dt <Plug>(go-def-tab)
 autocmd FileType go nmap <leader>e <Plug>(go-rename)
 autocmd FileType go nmap <leader>I :GoImports<CR>
 autocmd FileType go set listchars=tab:  ,trail:·
+
+autocmd FileType python nmap <buffer> <leader>k oimport pdb; pdb.set_trace()  # TODO: Breakpoint.<esc>

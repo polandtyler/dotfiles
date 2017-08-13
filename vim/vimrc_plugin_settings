@@ -132,9 +132,14 @@ let g:markdown_fenced_languages = ['bash=sh', 'css', 'erb=eruby', 'javascript',
 """""""""""""""""
 " Neomake Settings
 """""""""""""""""
-let g:neomake_javascript_enabled_makers = ['jshint']
+let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_python_enabled_makers = ['flake8']
 autocmd! BufWritePost * Neomake
+
+"""""""""""""""""
+" JSX Highlighting
+"""""""""""""""""
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 """""""""""""""""
 " Vim-Easy-Align Settings
