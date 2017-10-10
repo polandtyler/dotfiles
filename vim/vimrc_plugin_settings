@@ -134,7 +134,26 @@ let g:markdown_fenced_languages = ['bash=sh', 'css', 'erb=eruby', 'javascript',
 """""""""""""""""
 let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_python_enabled_makers = ['flake8']
-autocmd! BufWritePost * Neomake
+
+function! NeomakeESlintChecker()
+  let l:npm_bin = ''
+  let l:eslint = 'eslint'
+
+  if executable('npm')
+    let l:npm_bin = split(system('npm bin'), '\n')[0]
+  endif
+
+  if strlen(l:npm_bin) && executable(l:npm_bin . '/eslint')
+    let l:eslint = l:npm_bin . '/eslint'
+  endif
+
+  let b:neomake_javascript_eslint_exe = l:eslint
+endfunction
+
+autocmd FileType javascript :call NeomakeESlintChecker()
+
+autocmd! BufWritePost,BufReadPost * Neomake
+" autocmd! BufWritePost * Neomake
 
 """""""""""""""""
 " JSX Highlighting
