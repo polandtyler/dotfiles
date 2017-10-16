@@ -36,7 +36,7 @@ set relativenumber              " sets the numbers on the side to be relative to
 set number
 " set numberwidth=4
 
-set colorcolumn=80              " add 80 width marker so people won't point out useless comments in my js commits
+set colorcolumn=80              " add 80 width marker
 
 set sidescrolloff=2
 set scrolloff=2
@@ -102,12 +102,7 @@ endif
 let g:markdown_fenced_languages = ['bash=sh', 'css', 'erb=eruby',
  \ 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'sass', 'sh', 'xml']
 
-" Setup shellcheck
-" set makeprg=shellcheck\ -f\ gcc\ %
 autocmd FileType sh setlocal makeprg=shellcheck\ -f\ gcc\ %:S
-" au BufWritePost * :silent make | redraw!
-au QuickFixCmdPost [^l]* nested cwindow
-au QuickFixCmdPost    l* nested lwindow
 
 """"""""""""""""
 " Colors

@@ -104,11 +104,11 @@ nnoremap <Leader>fu :CtrlPFunky<Cr>
 nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
 
 """""""""""""""""
-" YouCompleteMe settings
+" Jedi Python settings
 """""""""""""""""
-let g:ycm_min_num_of_chars_for_completion = 1
-let g:ycm_server_python_interpreter = '/usr/local/bin/python3'
-set completeopt-=preview
+let g:jedi#force_py_version=3
+let g:jedi#usages_command = "<leader>u"
+" let g:jedi#completions_enabled = 0
 
 """""""""""""""""
 " Tern settings
@@ -134,6 +134,7 @@ let g:markdown_fenced_languages = ['bash=sh', 'css', 'erb=eruby', 'javascript',
 """""""""""""""""
 let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_python_enabled_makers = ['flake8']
+let g:neomake_open_list = 2
 
 function! NeomakeESlintChecker()
   let l:npm_bin = ''
