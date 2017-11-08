@@ -40,3 +40,12 @@ alias vim=nvim
 nodemon_wrapper(){
   nodemon $1 | bunyan
 }
+
+pass(){
+  chars="${1:-32}"
+  LC_CTYPE=C; < /dev/urandom tr -dc A-Z-a-z-0-9 | head -c${1:-"$chars"};
+}
+
+start_pg (){
+  pg_ctl -D /usr/local/var/postgres start
+}

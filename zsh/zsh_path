@@ -11,10 +11,10 @@ if [ -d /usr/local/sbin ] ; then
 fi
 
 # rbenv
-if [ `which rbenv 2> /dev/null` ]; then
-  SHELL="/bin/zsh"
-  eval "$(rbenv init -)"
-fi
+# if [ `which rbenv 2> /dev/null` ]; then
+#   SHELL="/bin/zsh"
+#   eval "$(rbenv init -)"
+# fi
 
 if [ -d $HOME/go/bin ]; then
   PATH="$HOME/go/bin:$PATH"
@@ -28,6 +28,11 @@ PATH=.:${PATH}
 
 if [ -d ~/.nvm ]; then
   source ~/.nvm/nvm.sh
+fi
+
+SYNTAX_HIGHLIGHTING=/usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+if [ -f "$SYNTAX_HIGHLIGHTING" ]; then
+  source "$SYNTAX_HIGHLIGHTING"
 fi
 
 ############################################################

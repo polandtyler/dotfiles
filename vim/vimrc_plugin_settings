@@ -6,6 +6,24 @@
 " the commands in this file might error if the plugins aren't loaded.
 
 """"""""""""""""""
+" Deoplete Plugin
+""""""""""""""""""
+let g:deoplete#enable_at_startup = 1
+set completeopt-=preview
+
+""""""""""""""""""
+" EchoDoc
+""""""""""""""""""
+set noshowmode
+let g:echodoc_enable_at_startup=1
+set shortmess+=c
+
+""""""""""""""""""
+" Supertab
+""""""""""""""""""
+let g:SuperTabDefaultCompletionType = "<c-n>"
+
+""""""""""""""""""
 " NerdTree Plugin
 """"""""""""""""""
 
@@ -75,11 +93,11 @@ let g:ctrlp_map = '<leader>,'
 let g:ctrlp_cmd = 'CtrlP'
 
 nmap <leader>, :CtrlP<cr>
-nmap <leader>. :CtrlPClearCache<cr>:CtrlP<cr>
-nmap <leader>l :CtrlPLine<cr>
-nmap <leader>b :CtrlPBuff<cr>
-nmap <leader>m :CtrlPBufTag<cr>
-nmap <leader>M :CtrlPBufTagAll<cr>
+nmap <leader>C :CtrlPClearCache<cr>:CtrlP<cr>
+" nmap <leader>l :CtrlPLine<cr>
+nmap <leader>: :CtrlPBuff<cr>
+" nmap <leader>m :CtrlPBufTag<cr>
+" nmap <leader>M :CtrlPBufTagAll<cr>
 
 let g:ctrlp_clear_cache_on_exit = 1
 
@@ -133,6 +151,8 @@ let g:markdown_fenced_languages = ['bash=sh', 'css', 'erb=eruby', 'javascript',
 " Neomake Settings
 """""""""""""""""
 let g:neomake_javascript_enabled_makers = ['eslint']
+let g:neomake_typescript_enabled_makers = ['tslint']
+
 let g:neomake_python_enabled_makers = ['flake8']
 let g:neomake_open_list = 2
 
@@ -142,6 +162,7 @@ function! NeomakeESlintChecker()
 
   if executable('npm')
     let l:npm_bin = split(system('npm bin'), '\n')[0]
+    let l:npm_prefix = split(system('npm prefix'), '\n')[0]
   endif
 
   if strlen(l:npm_bin) && executable(l:npm_bin . '/eslint')
@@ -151,10 +172,16 @@ function! NeomakeESlintChecker()
   let b:neomake_javascript_eslint_exe = l:eslint
 endfunction
 
-autocmd FileType javascript :call NeomakeESlintChecker()
+" autocmd FileType javascript :call NeomakeESlintChecker()
 
 autocmd! BufWritePost,BufReadPost * Neomake
+autocmd! VimEnter typescript NeomakeEnable
 " autocmd! BufWritePost * Neomake
+
+""""""""""""""""""
+" nvim-typescript
+""""""""""""""""""
+autocmd FileType typescript nmap <silent> <leader>d :TSDef<cr>
 
 """""""""""""""""
 " JSX Highlighting
@@ -164,8 +191,8 @@ let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 """""""""""""""""
 " Vim-Easy-Align Settings
 """""""""""""""""
-map <Leader>r :call EnterAlign()<cr>
-vmap <Enter> <Plug>(EasyAlign)
+" map <Leader>r :call EnterAlign()<cr>
+" vmap <Enter> <Plug>(EasyAlign)
 
 function! EnterAlign()
   let save_cursor = getpos(".")
@@ -175,6 +202,10 @@ function! EnterAlign()
   call setpos('.', save_cursor)
 endfunction
 
+"""""""""""""""""
+" vim-easymotion
+"""""""""""""""""
+map <Leader> <Plug>(easymotion-prefix)
 """""""""""""""""
 " vim-go
 """""""""""""""""

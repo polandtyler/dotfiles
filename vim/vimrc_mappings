@@ -2,8 +2,8 @@
 " ------------------------------------------------------------
 
 "Vertical split then hop to new buffer
-noremap <Leader>v :vert new<cr>
-noremap <Leader>s :new<cr>
+noremap <Leader>.v :vert new<cr>
+noremap <Leader>.s :new<cr>
 noremap <Leader>x :quit<cr>
 
 " Alignment Shortcuts

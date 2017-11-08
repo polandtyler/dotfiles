@@ -10,59 +10,76 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'goatslacker/mango.vim.git'
 
 if &loadplugins
+  " Background features
+  Plugin 'benekastah/neomake'
+  Plugin 'kana/vim-textobj-user'
+  Plugin 'kana/vim-textobj-function'
+  Plugin 'thinca/vim-textobj-function-javascript'
+  Plugin 'Shougo/echodoc.vim'
 
-  Plugin 'airblade/vim-gitgutter'
+  " Keyboard Extensions
+  Plugin 'christoomey/vim-tmux-navigator.git'
+
+  Plugin 'ervandew/supertab'
+  Plugin 'junegunn/vim-easy-align'
+
+  Plugin 'easymotion/vim-easymotion'
 
   Plugin 'scrooloose/nerdtree.git'
   Plugin 'nathanaelkane/vim-indent-guides.git'
-
-  Plugin 'tpope/vim-fugitive.git'
-
-  Plugin 'elzr/vim-json'
   Plugin 'tpope/vim-surround'
-
-  Plugin 'bling/vim-airline'
+  Plugin 'vim-scripts/YankRing.vim.git'
 
   Plugin 'vim-scripts/AutoClose.git'
   Plugin 'vim-scripts/tComment.git'
   Plugin 'vim-scripts/ReplaceWithRegister.git'
 
+  " Git
+  Plugin 'airblade/vim-gitgutter'
+  Plugin 'tpope/vim-fugitive.git'
+
+  " Go
   " Plugin 'fatih/vim-go'
 
-  Plugin 'vim-scripts/YankRing.vim.git'
-  Plugin 'benekastah/neomake'
+  " Styling
+  Plugin 'bling/vim-airline'
   Plugin 'altercation/vim-colors-solarized.git'
 
   Plugin 'kien/ctrlp.vim.git'
   Plugin 'tacahiroy/ctrlp-funky'
 
+  " Python
   if has('python')
     Plugin 'davidhalter/jedi-vim'
     Plugin 'pignacio/vim-yapf-format'
-    " Plugin 'Shougo/deoplete.nvim'
+    Plugin 'zchee/deoplete-jedi'
   endif
 
-  Plugin 'christoomey/vim-tmux-navigator.git'
+  " Autocompletion
+  Plugin 'Shougo/deoplete.nvim'
 
+  " Rust
   Plugin 'wting/rust.vim'
+
+  " JavaScript
   Plugin 'pangloss/vim-javascript.git'
   Plugin 'jelera/vim-javascript-syntax.git'
   Plugin 'mxw/vim-jsx'
+  Plugin 'elzr/vim-json'
+  Plugin 'digitaltoad/vim-pug'
 
+  " TypeScript
+  Plugin 'mhartington/nvim-typescript'
+  Plugin 'HerringtonDarkholme/yats.vim'
+
+  " Markdown
   Plugin 'tpope/vim-markdown'
   Plugin 'itspriddle/vim-marked.git'
 
-  Plugin 'junegunn/vim-easy-align'
-
-  Plugin 'kana/vim-textobj-user'
-  Plugin 'kana/vim-textobj-function'
-  Plugin 'thinca/vim-textobj-function-javascript'
-
+  " Infrastructure
   Plugin 'ekalinin/Dockerfile.vim'
-  Plugin 'digitaltoad/vim-pug'
   Plugin 'hashivim/vim-terraform'
   Plugin 'nathanielc/vim-tickscript'
-  Plugin 'ervandew/supertab'
 endif
 
 " All of your Plugins must be added before the following line
