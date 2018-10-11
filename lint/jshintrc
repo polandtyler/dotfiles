@@ -1,4 +1,5 @@
 {
+    "esversion"     : 6,
     "asi"           : true, // true: Tolerate Automatic Semicolon Insertion (no semicolons)
     "camelcase"     : false,    // true: Identifiers must be in camelCase
     "curly"         : false,    // true: Require {} for every new block or scope
