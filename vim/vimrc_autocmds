@@ -40,7 +40,7 @@ autocmd BufRead,BufNewFile *.conf set filetype=upstart
 " do not extend comments when opening a new line
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
-autocmd BufWritePost *.py :silent call FormatPython()
+" autocmd BufWritePost *.py :silent call FormatPython()
 
 autocmd Filetype t let b:noStripWhitespace=1
 autocmd BufWritePre * StripWhiteSpace
@@ -51,6 +51,8 @@ command! -range=% StripWhiteSpaces :silent call <SID>StripWhiteSpaces()
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 autocmd bufwritepost *.js silent !standard % --format
 autocmd Filetype javascript set autoread
+
+autocmd BufEnter *.tsx set filetype=typescript
 
 "Go specific settings
 autocmd FileType go nmap <leader>in <Plug>(go-info)

@@ -69,10 +69,17 @@ set backup
 set backupdir=~/.vim_tmp
 set dir=~/.vim_tmp
 
-set t_Co=256 " 256 colors
-set background=dark
 syntax on " syntax highlighting
-colorscheme mango
+
+set t_Co=256 " 256 colors
+if &loadplugins
+  colorscheme vim-material
+endif
+
+
+if (has("termguicolors"))
+  set termguicolors
+endif
 
 hi TabLineSel  ctermfg=244 ctermbg=235
 hi TabLine     ctermfg=239 ctermbg=233

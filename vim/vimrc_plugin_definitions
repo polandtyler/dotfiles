@@ -10,8 +10,11 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'goatslacker/mango.vim.git'
 
 if &loadplugins
+  " let g:ale_emit_conflict_warnings = 0
+
   " Background features
-  Plugin 'benekastah/neomake'
+  Plugin 'neomake/neomake'
+  " Plugin 'w0rp/ale'
   Plugin 'kana/vim-textobj-user'
   Plugin 'kana/vim-textobj-function'
   Plugin 'thinca/vim-textobj-function-javascript'
@@ -43,7 +46,9 @@ if &loadplugins
 
   " Styling
   Plugin 'bling/vim-airline'
-  Plugin 'altercation/vim-colors-solarized.git'
+  " Plugin 'altercation/vim-colors-solarized.git'
+  " Plugin 'kaicataldo/material.vim'
+  Plugin 'hzchirs/vim-material'
 
   Plugin 'kien/ctrlp.vim.git'
   Plugin 'tacahiroy/ctrlp-funky'
@@ -79,7 +84,17 @@ if &loadplugins
   " Infrastructure
   Plugin 'ekalinin/Dockerfile.vim'
   Plugin 'hashivim/vim-terraform'
-  Plugin 'nathanielc/vim-tickscript'
+  " Plugin 'nathanielc/vim-tickscript'
+
+  " Haskell
+  Plugin 'alx741/vim-hindent'
+  Plugin 'commercialhaskell/hindent'
+  Plugin 'jaspervdj/stylish-haskell'
+
+  Plugin 'parsonsmatt/intero-neovim'
+  " Plugin 'glittershark/vim-hare'
+
+  " colorscheme vim-material
 endif
 
 " All of your Plugins must be added before the following line

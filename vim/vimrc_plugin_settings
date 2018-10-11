@@ -147,11 +147,18 @@ let g:ctrlp_mruf_relative = 1
 let g:markdown_fenced_languages = ['bash=sh', 'css', 'erb=eruby', 'javascript',
     \ 'js=javascript', 'json=javascript', 'ruby', 'sass', 'sh', 'xml']
 
+
 """""""""""""""""
 " Neomake Settings
 """""""""""""""""
+let g:neomake_haskell_enabled_makers = ['hlint']
 let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_typescript_enabled_makers = ['tslint']
+
+let config = neomake#utils#FindGlobFile('tsconfig.vim.json')
+if !empty(config)
+  let g:neomake_typescript_tslint_args = ['--project', config]
+endif
 
 let g:neomake_python_enabled_makers = ['flake8']
 let g:neomake_open_list = 2
@@ -172,11 +179,19 @@ function! NeomakeESlintChecker()
   let b:neomake_javascript_eslint_exe = l:eslint
 endfunction
 
+" call neomake#configure#automake('nw', 750)
+
 " autocmd FileType javascript :call NeomakeESlintChecker()
 
-autocmd! BufWritePost,BufReadPost * Neomake
-autocmd! VimEnter typescript NeomakeEnable
-" autocmd! BufWritePost * Neomake
+function! MaybeNeomake()
+  if &filetype != "haskell"
+    Neomake
+  endi
+endfunction
+
+autocmd! BufWritePost,BufReadPost * :call MaybeNeomake()
+autocmd! BufWritePost * :call MaybeNeomake()
+autocmd! VimEnter typescript NeomakeDisable
 
 """"""""""""""""""
 " nvim-typescript
@@ -217,3 +232,89 @@ let g:go_highlight_structs = 1
 let g:go_autodetect_gopath = 0
 
 set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
+
+"""""""""""""""""
+" neovimhaskell/haskell-vim
+"""""""""""""""""
+
+" Align 'then' two spaces after 'if'
+let g:haskell_indent_if = 2
+" Indent 'where' block two spaces under previous body
+let g:haskell_indent_before_where = 2
+" Allow a second case indent style (see haskell-vim README)
+let g:haskell_indent_case_alternative = 1
+" Only next under 'let' if there's an equals sign
+let g:haskell_indent_let_no_in = 0
+
+"""""""""""""""""
+" hindent & stylish-haskell
+"""""""""""""""""
+
+" Indenting on save is too aggressive for me
+let g:hindent_on_save = 0
+
+" Helper function, called below with mappings
+function! HaskellFormat(which) abort
+  if a:which ==# 'hindent' || a:which ==# 'both'
+    :Hindent
+  endif
+  if a:which ==# 'stylish' || a:which ==# 'both'
+    silent! exe 'undojoin'
+    silent! exe 'keepjumps %!stylish-haskell'
+  endif
+endfunction
+
+" Key bindings
+augroup haskellStylish
+  au!
+  " Just hindent
+  au FileType haskell nnoremap <leader>hi :Hindent<CR>
+  " Just stylish-haskell
+  au FileType haskell nnoremap <leader>hs :call HaskellFormat('stylish')<CR>
+  " First hindent, then stylish-haskell
+  au FileType haskell nnoremap <leader>hf :call HaskellFormat('both')<CR>
+augroup END
+
+"""""""""""""""""
+" w0rp/ale
+"""""""""""""""""
+
+" let g:ale_linters = {
+"       \  'haskell': ['hlint']
+" \}
+"
+" nmap <silent> <M-k> <Plug>(ale_previous_wrap)
+" nmap <silent> <M-j> <Plug>(ale_next_wrap)
+" nmap <silent> <M-j> <Plug>(ale_next_wrap)
+
+"""""""""""""""""
+" parsonsmatt/intero-neovim
+"""""""""""""""""
+
+let g:intero_start_immediately = 0
+let g:intero_type_on_hover = 1
+" OPTIONAL: Make the update time shorter, so the type info will trigger faster.
+set updatetime=1000
+
+augroup interoMaps
+  au!
+
+  au FileType haskell nnoremap <silent> <leader>io :InteroOpen<CR>
+  au FileType haskell nnoremap <silent> <leader>iov :InteroOpen<CR><C-W>H
+  au FileType haskell nnoremap <silent> <leader>ih :InteroHide<CR>
+  au FileType haskell nnoremap <silent> <leader>is :InteroStart<CR>
+  au FileType haskell nnoremap <silent> <leader>ik :InteroKill<CR>
+
+  au BufWritePost *.hs InteroReload
+  au FileType haskell nnoremap <silent> <leader>wr :w \| :InteroReload<CR>
+  au FileType haskell nnoremap <silent> <leader>il :InteroLoadCurrentModule<CR>
+  au FileType haskell nnoremap <silent> <leader>if :InteroLoadCurrentFile<CR>
+
+  au FileType haskell map <leader>t <Plug>InteroGenericType
+  au FileType haskell map <leader>T <Plug>InteroType
+  au FileType haskell nnoremap <silent> <leader>it :InteroTypeInsert<CR>
+
+  au FileType haskell nnoremap <silent> <leader>jd :InteroGoToDef<CR>
+  au FileType haskell nnoremap <silent> <leader>iu :InteroUses<CR>
+  au FileType haskell nnoremap <leader>ist :InteroSetTargets<SPACE>
+augroup END
