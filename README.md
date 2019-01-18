@@ -1,6 +1,6 @@
 ## Quick start
 
-    curl https://raw.githubusercontent.com/wasbazi/dotfiles/master/get.dotfiles.sh | sh
+    curl https://raw.githubusercontent.com/polandtyler/dotfiles/master/get.dotfiles.sh | sh
 
 This clones the repo, downloads all the submodules, and links the vim-related dotfiles into
 the current user's home directory.  Running this command should get you up and
