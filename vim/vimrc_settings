@@ -63,7 +63,7 @@ set nofoldenable                " (fen) enables or disables folding
 
 set clipboard=unnamed           " copy/paste to "* by default
 
-let mapleader=","
+let g:mapleader=","
 
 set backup
 set backupdir=~/.vim_tmp
@@ -73,7 +73,9 @@ syntax on " syntax highlighting
 
 set t_Co=256 " 256 colors
 if &loadplugins
+  let g:airline_theme='material'
   colorscheme vim-material
+  " set background=dark
 endif
 
 
@@ -99,8 +101,10 @@ endif
 
 if has('nvim')
   let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-  let g:python_host_prog = '/usr/local/bin/python'
-  let g:python3_host_prog = '/usr/local/bin/python3'
+  " allows us to set python3 as default `python` resolution via $PATH but
+  " link to original python2 because even in 2020 we are still relying on py2
+  let g:python_host_prog = '/Users/avi/.pyenv/versions/neovim2/bin/python'
+  let g:python3_host_prog = '/Users/avi/.pyenv/versions/neovim3/bin/python'
 endif
 
 """""""""""""""""

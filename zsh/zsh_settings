@@ -12,7 +12,23 @@ ZSH_THEME="asimple"
 # Don't forget to install zsh-syntax-highlighting
 # https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md
 
-plugins=(brew docker zsh-syntax-highlighting autojump)
+plugins=(brew docker zsh-syntax-highlighting autojump kubectl)
 
 # This has to be after plugins, just trust me
 source $ZSH/oh-my-zsh.sh
+
+GPG_TTY=$(tty)
+export GPG_TTY
+
+if [ -S "${HOME}/.gnupg/S.gpg-agent.ssh" ]; then
+  export SSH_AUTH_SOCK=${HOME}/.gnupg/S.gpg-agent.ssh
+fi
+
+# python versions are annnnnnnnoying
+# https://github.com/pyenv/pyenv
+export PATH="/Users/avi/.pyenv/bin:$PATH"
+
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
+fi

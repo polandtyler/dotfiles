@@ -11,6 +11,7 @@ alias gst="git status"
 # alias gpt="git push --follow-tags"
 alias gb="git branch"
 alias gco="git checkout"
+alias gup='git pull --rebase && git submodule update --init --recursive'
 
 ############################################################
 ## List
@@ -41,7 +42,7 @@ nodemon_wrapper(){
   nodemon $1 | bunyan
 }
 
-pass(){
+rand_pass(){
   chars="${1:-32}"
   LC_CTYPE=C; < /dev/urandom tr -dc A-Z-a-z-0-9 | head -c${1:-"$chars"};
 }
@@ -49,3 +50,6 @@ pass(){
 start_pg (){
   pg_ctl -D /usr/local/var/postgres start
 }
+
+alias pw="pass show -c"
+complete -o filenames -o nospace -F _pass pw

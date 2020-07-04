@@ -1,0 +1,6 @@
+{
+  "python.linting.pylintEnabled": false,
+  "python.linting.flake8Enabled": true,
+  "python.linting.enabled": true,
+  "python.setInterpreter": "/Users/avi/.pyenv/versions/neovim3/bin/python"
+}

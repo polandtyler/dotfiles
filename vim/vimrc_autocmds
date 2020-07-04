@@ -34,6 +34,9 @@ endfunction
 " associate Dockerfile with sh filetype syntax
 autocmd BufRead,BufNewFile Dockerfile setfiletype sh
 
+" associate python stub file with py filetype syntax
+autocmd BufRead,BufNewFile *.pyi setfiletype python
+
 " associate .conf files with upstart filetype syntqx
 autocmd BufRead,BufNewFile *.conf set filetype=upstart
 
@@ -76,3 +79,5 @@ autocmd FileType go nmap <leader>I :GoImports<CR>
 autocmd FileType go set listchars=tab:  ,trail:·
 
 autocmd FileType python nmap <buffer> <leader>k oimport pdb; pdb.set_trace()  # noqa: E702; TODO: Breakpoint.<esc>
+autocmd FileType python nmap <buffer> <leader>i oimport ipdb; ipdb.set_trace()  # noqa: E702; TODO: Breakpoint.<esc>
+au BufNewFile,BufRead Jenkinsfile setf groovy

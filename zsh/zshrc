@@ -1,7 +1,3 @@
-if [ -f ~/dotfiles/zsh/zsh_aliases ] ; then
-  . ~/dotfiles/zsh/zsh_aliases
-fi
-
 if [ -f ~/dotfiles/zsh/zsh_path ] ; then
   . ~/dotfiles/zsh/zsh_path
 fi
@@ -18,6 +14,9 @@ if [ -f ~/dotfiles/zsh/zsh_local ] ; then
   . ~/dotfiles/zsh/zsh_local
 fi
 
+if [ -f ~/dotfiles/zsh/zsh_aliases ] ; then
+  . ~/dotfiles/zsh/zsh_aliases
+fi
 
 export NVM_DIR="/Users/avi/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -27,3 +26,5 @@ if [ -f '/usr/local/bin/google-cloud-sdk/path.zsh.inc' ]; then source '/usr/loca
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/usr/local/bin/google-cloud-sdk/completion.zsh.inc' ]; then source '/usr/local/bin/google-cloud-sdk/completion.zsh.inc'; fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
