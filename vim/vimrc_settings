@@ -92,10 +92,10 @@ hi TabLineFill ctermfg=0   ctermbg=233
 "
 " http://sourceforge.net/mailarchive/forum.php?thread_name=AANLkTinkbdoZ8eNR1X2UobLTeww1jFrvfJxTMfKSq-L%2B%40mail.gmail.com&forum_name=tmux-users
 if exists('$TMUX')
-  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
   let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 else
-  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+  let &t_SI = "\<Esc>]50;CursorShape=0\x7"
   let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
 
@@ -103,9 +103,12 @@ if has('nvim')
   let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
   " allows us to set python3 as default `python` resolution via $PATH but
   " link to original python2 because even in 2020 we are still relying on py2
-  let g:python_host_prog = '/Users/avi/.pyenv/versions/neovim2/bin/python'
-  let g:python3_host_prog = '/Users/avi/.pyenv/versions/neovim3/bin/python'
+  " let g:python_host_prog = '/Users/avi/.pyenv/versions/neovim2/bin/python'
+  " let g:python3_host_prog = '/Users/avi/.pyenv/versions/neovim3/bin/python'
 endif
+
+let g:python_host_prog = '/usr/bin/python2'
+let g:python3_host_prog = '/root/.pyenv/shims/python3'
 
 """""""""""""""""
 " Markdown Settings

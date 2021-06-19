@@ -10,37 +10,34 @@ if [ -d /usr/local/sbin ] ; then
   PATH="${PATH}:/usr/local/sbin"
 fi
 
-if [ -d ~/go/bin ]; then
-  PATH="${PATH}:~/go/bin"
+export GOPATH="/mnt/abyss_shard/go"
+if [ -d $GOPATH/bin ]; then
+  PATH="$GOPATH/bin:$PATH"
 fi
 
-# rbenv
-# if [ `which rbenv 2> /dev/null` ]; then
-#   SHELL="/bin/zsh"
-#   eval "$(rbenv init -)"
-# fi
-
-if [ -d $HOME/go/bin ]; then
-  PATH="$HOME/go/bin:$PATH"
+if [ -d /usr/local/go/bin ]; then
+  export PATH=$PATH:/usr/local/go/bin
 fi
 
-if [ -d /usr/local/bin ] ; then
-  PATH="${PATH}:/usr/local/bin"
-fi
 
-if [ -d ~/.local/bin ] ; then
-  PATH="${PATH}:${HOME}/.local/bin"
-fi
-
-PATH=.:${PATH}
-
-if [ -d ~/.nvm ]; then
-  source ~/.nvm/nvm.sh
+if [ -d /snap ] ; then
+  PATH="/snap/bin:${PATH}"
 fi
 
 SYNTAX_HIGHLIGHTING=/usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 if [ -f "$SYNTAX_HIGHLIGHTING" ]; then
   source "$SYNTAX_HIGHLIGHTING"
+fi
+
+if [ -d /usr/local/bin ] ; then
+  PATH="/usr/local/bin:${PATH}"
+fi
+
+
+if [ -d /root/.pyenv ]; then
+  export PATH="/root/.pyenv/bin:$PATH"
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
 fi
 
 ############################################################
@@ -55,16 +52,9 @@ fi
 ## EDITOR SETTINGS
 ############################################################
 
-export PAGER="less"
+export PAGER="less -FX"
 export EDITOR="/usr/local/bin/vim --noplugins"
 export VISUAL="/usr/local/bin/vim --noplugins"
 export ANSIBLE_COW_SELECTION="stegosaurus"
-export GOPATH="$HOME/go"
-# export DOCKER_HOST='tcp://127.0.0.1:2375'
-# export DOCKER_IP='127.0.0.1'
 
-############################################################
-## VAGRANT
-############################################################
-# export VAGRANT_DEFAULT_PROVIDER="vmware_fusion"
-# export VAGRANT_VMWARE_FUSION_APP="/Applications/VMware Fusion.app"
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"

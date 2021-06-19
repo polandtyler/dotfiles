@@ -38,7 +38,8 @@ autocmd BufRead,BufNewFile Dockerfile setfiletype sh
 autocmd BufRead,BufNewFile *.pyi setfiletype python
 
 " associate .conf files with upstart filetype syntqx
-autocmd BufRead,BufNewFile *.conf set filetype=upstart
+autocmd BufEnter,BufRead,BufNewFile *.conf set filetype=upstart
+autocmd BufEnter,BufRead,BufNewFile *.j2 set ft=jinja
 
 " do not extend comments when opening a new line
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
@@ -46,38 +47,48 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " autocmd BufWritePost *.py :silent call FormatPython()
 
 autocmd Filetype t let b:noStripWhitespace=1
-autocmd BufWritePre * StripWhiteSpace
+autocmd BufWritePre * StripWhiteSpaces
 command! -range=% StripWhiteSpaces :silent call <SID>StripWhiteSpaces()
 
 "Javascript specific
 " javascript uses 2 spaces everywhere
-autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
-autocmd bufwritepost *.js silent !standard % --format
 autocmd Filetype javascript set autoread
+autocmd FileType javascript set listchars=tab:  ,trail:·
 
-autocmd BufEnter *.tsx set filetype=typescript
+" autocmd BufEnter *.tsx set filetype=typescript
+autocmd FileType Fastfile set filetype=ruby
+
+autocmd BufEnter .*yml.j2 set ft=yaml
+autocmd BufEnter .*yaml.j2 set ft=yaml
+
+function! DlvDebugRoot()
+  let root = FindRootDirectory()
+  call delve#runCommand("debug " . root, "", root)
+  return ""
+endfunction
 
 "Go specific settings
 autocmd FileType go nmap <leader>in <Plug>(go-info)
 autocmd FileType go nmap <leader>im <Plug>(go-implements)
 autocmd FileType go nmap <leader>p <Plug>(go-referrers)
-autocmd FileType go nmap <leader>gd <Plug>(go-doc)
-autocmd FileType go nmap <leader>gb <Plug>(go-doc-browser)
-autocmd FileType go nmap <leader>gs <Plug>(go-doc-split)
-autocmd FileType go nmap <leader>gv <Plug>(go-doc-vertical)
-autocmd FileType go nmap <leader>gt <Plug>(go-doc-tab)
+autocmd FileType go noremap <silent> <leader>dt :call delve#toggleBreakpoint(delve#getFile(), line('.'))<CR>
+" autocmd FileType go nmap <leader>dd <Plug>(go-doc)
+" autocmd FileType go nmap <leader>db <Plug>(go-doc-browser)
+" autocmd FileType go nmap <leader>ds <Plug>(go-doc-split)
+" autocmd FileType go nmap <leader>dv <Plug>(go-doc-vertical)
+" autocmd FileType go nmap <leader>dt <Plug>(go-doc-tab)
 autocmd FileType go nmap <leader>r <Plug>(go-run)
 autocmd FileType go nmap <leader>b <Plug>(go-build)
 autocmd FileType go nmap <leader>t <Plug>(go-test)
 " autocmd FileType go nmap <leader>c <Plug>(go-coverage)
-autocmd FileType go nmap <leader>dd <Plug>(go-def)
-autocmd FileType go nmap <leader>ds <Plug>(go-def-split)
-autocmd FileType go nmap <leader>dv <Plug>(go-def-vertical)
-autocmd FileType go nmap <leader>dt <Plug>(go-def-tab)
+autocmd FileType go noremap <leader>gp :call DlvDebugRoot()<CR>
+autocmd FileType go nmap <leader>gd <Plug>(go-def)
+autocmd FileType go nmap <leader>gs <Plug>(go-def-split)
+autocmd FileType go nmap <leader>gv <Plug>(go-def-vertical)
+autocmd FileType go nmap <leader>gt <Plug>(go-def-tab)
 autocmd FileType go nmap <leader>e <Plug>(go-rename)
 autocmd FileType go nmap <leader>I :GoImports<CR>
 autocmd FileType go set listchars=tab:  ,trail:·
 
-autocmd FileType python nmap <buffer> <leader>k oimport pdb; pdb.set_trace()  # noqa: E702; TODO: Breakpoint.<esc>
-autocmd FileType python nmap <buffer> <leader>i oimport ipdb; ipdb.set_trace()  # noqa: E702; TODO: Breakpoint.<esc>
+autocmd FileType python nmap <buffer> <leader>k opdb.set_trace()<esc>
 au BufNewFile,BufRead Jenkinsfile setf groovy

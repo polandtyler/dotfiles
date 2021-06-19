@@ -5,15 +5,27 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+Plugin 'airblade/vim-rooter'
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 Plugin 'goatslacker/mango.vim.git'
 
 if &loadplugins
-  Plugin 'neoclide/coc.nvim'
+
+  Plugin 'evidens/vim-jinja2'
+
   Plugin 'kana/vim-textobj-user'
   Plugin 'kana/vim-textobj-function'
   Plugin 'Shougo/echodoc.vim'
+
+  Plugin 'yuezk/vim-js'
+  Plugin 'HerringtonDarkholme/yats.vim'
+  Plugin 'maxmellon/vim-jsx-pretty'
+
+  " Plugin 'junegunn/fzf'
+  " Plugin 'junegunn/fzf.vim'
+  Plugin 'neoclide/coc.nvim'
+  " Plugin 'antoinemadec/coc-fzf'
 
   " Keyboard Extensions
   Plugin 'christoomey/vim-tmux-navigator.git'
@@ -32,66 +44,37 @@ if &loadplugins
   Plugin 'vim-scripts/ReplaceWithRegister.git'
 
   " Git
-  Plugin 'airblade/vim-gitgutter'
+  " Plugin 'airblade/vim-gitgutter'
 
   " Go
-  " Plugin 'fatih/vim-go'
+  Plugin 'preservim/vimux'
+  Plugin 'fatih/vim-go'
+  Plugin 'sebdah/vim-delve'
 
   " Styling
-  Plugin 'bling/vim-airline'
+  " Plugin 'bling/vim-airline'
   Plugin 'hzchirs/vim-material'
 
   Plugin 'kien/ctrlp.vim.git'
   Plugin 'tacahiroy/ctrlp-funky'
 
   " Python
-  if has('python')
-    Plugin 'pignacio/vim-yapf-format'
-    Plugin 'numirias/semshi'
-  endif
-
-  " Rust
-  " Plugin 'wting/rust.vim'
-
-  """
-  " Turn on for javascript things
-  """
-
-  " JavaScript
-  " Plugin 'thinca/vim-textobj-function-javascript'
-  " Plugin 'pangloss/vim-javascript.git'
-  " Plugin 'jelera/vim-javascript-syntax.git'
-  " Plugin 'mxw/vim-jsx'
-  " Plugin 'elzr/vim-json'
-  " Plugin 'digitaltoad/vim-pug'
-
-  " TypeScript
-  " Plugin 'mhartington/nvim-typescript'
-  " Plugin 'HerringtonDarkholme/yats.vim'
-
+  " if has('python')
+  "   Plugin 'pignacio/vim-yapf-format'
+  "   Plugin 'numirias/semshi'
+  " endif
+  "
+  "
   " Markdown
   Plugin 'tpope/vim-markdown'
   Plugin 'itspriddle/vim-marked.git'
 
   " Infrastructure
   Plugin 'ekalinin/Dockerfile.vim'
-  Plugin 'hashivim/vim-terraform'
-  " Plugin 'nathanielc/vim-tickscript'
+  " Plugin 'hashivim/vim-terraform'
+  Plugin 'nathanielc/vim-tickscript'
 
-  """
-  " maybe make this turn on if filetype is haskell?
-  """
-  " Haskell
-  " Plugin 'alx741/vim-hindent'
-  " Plugin 'commercialhaskell/hindent'
-  " Plugin 'jaspervdj/stylish-haskell'
-  " Plugin 'parsonsmatt/intero-neovim'
-  "" Plugin 'glittershark/vim-hare'
-
-  """
-  " maybe make this turn on if filetype is salt?
-  """
-  Plugin 'saltstack/salt-vim'
+  Plugin 'cespare/vim-toml'
 endif
 
 " All of your Plugins must be added before the following line

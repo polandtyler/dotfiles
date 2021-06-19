@@ -1,1 +1,1 @@
-/Users/avi/dotfiles/vim/vimrc
+/root/dotfiles/vim/vimrc

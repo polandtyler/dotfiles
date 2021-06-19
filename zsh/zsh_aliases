@@ -50,6 +50,3 @@ rand_pass(){
 start_pg (){
   pg_ctl -D /usr/local/var/postgres start
 }
-
-alias pw="pass show -c"
-complete -o filenames -o nospace -F _pass pw

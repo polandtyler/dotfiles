@@ -1,6 +1,15 @@
 {
   "python.linting.pylintEnabled": false,
   "python.linting.flake8Enabled": true,
+  "python.jediEnabled": true,
   "python.linting.enabled": true,
-  "python.setInterpreter": "/Users/avi/.pyenv/versions/neovim3/bin/python"
+  "python.pythonPath": "/root/.cache/pypoetry/virtualenvs/binance-review-vu-vqxFf-py3.9/bin/python",
+  "python.venvFolders": ["venv"],
+  "pyright.disableSelfClsNotAccessed": true,
+  "pyright.reportUnusedImport": false,
+  "pyright.reportUnusedClass": false,
+  "pyright.reportUnusedFunction": false,
+  "pyright.reportUnusedVariable": false,
+  "tsserver.implicitProjectConfig.experimentalDecorators": true,
+  "rust-analyzer.updates.channel": "nightly"
 }
