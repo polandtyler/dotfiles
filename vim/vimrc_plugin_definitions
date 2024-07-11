@@ -6,74 +6,67 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'airblade/vim-rooter'
+
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
-Plugin 'goatslacker/mango.vim.git'
 
 if &loadplugins
+  " Theming
+  Plugin 'vim-scripts/YankRing.vim.git'
 
-  Plugin 'evidens/vim-jinja2'
+  Plugin 'hzchirs/vim-material'
+  Plugin 'NLKNguyen/papercolor-theme'  " attempt to replace material, support transparency
 
-  Plugin 'kana/vim-textobj-user'
-  Plugin 'kana/vim-textobj-function'
-  Plugin 'Shougo/echodoc.vim'
-
-  Plugin 'yuezk/vim-js'
-  Plugin 'HerringtonDarkholme/yats.vim'
-  Plugin 'maxmellon/vim-jsx-pretty'
-
-  " Plugin 'junegunn/fzf'
-  " Plugin 'junegunn/fzf.vim'
-  Plugin 'neoclide/coc.nvim'
-  " Plugin 'antoinemadec/coc-fzf'
+  Plugin 'vim-airline/vim-airline'
+  Plugin 'vim-airline/vim-airline-themes'
 
   " Keyboard Extensions
+  Plugin 'phaazon/hop.nvim'
   Plugin 'christoomey/vim-tmux-navigator.git'
 
-  Plugin 'ervandew/supertab'
-  Plugin 'junegunn/vim-easy-align'
-
-  Plugin 'easymotion/vim-easymotion'
-
-  Plugin 'scrooloose/nerdtree.git'
   Plugin 'nathanaelkane/vim-indent-guides.git'
   Plugin 'tpope/vim-surround'
-  Plugin 'vim-scripts/YankRing.vim.git'
 
   Plugin 'vim-scripts/tComment.git'
   Plugin 'vim-scripts/ReplaceWithRegister.git'
 
-  " Git
-  " Plugin 'airblade/vim-gitgutter'
+  " Project navigation
+  Plugin 'scrooloose/nerdtree.git'
+  Plugin 'kien/ctrlp.vim.git'
+
+  """"""""""""""""""
+  " Language server
+  """"""""""""""""""
+  Plugin 'neoclide/coc.nvim'
+
+  """"""""""""""""""
+  " Language specific plugins
+  """"""""""""""""""
+  " Jinja2
+  " Plugin 'evidens/vim-jinja2'
+
+  " Javascript
+  " Plugin 'yuezk/vim-js'
+  " Plugin 'maxmellon/vim-jsx-pretty'
+
+  " Typescript
+  " Plugin 'HerringtonDarkholme/yats.vim'
 
   " Go
   Plugin 'preservim/vimux'
   Plugin 'fatih/vim-go'
   Plugin 'sebdah/vim-delve'
 
-  " Styling
-  " Plugin 'bling/vim-airline'
-  Plugin 'hzchirs/vim-material'
-
-  Plugin 'kien/ctrlp.vim.git'
-  Plugin 'tacahiroy/ctrlp-funky'
-
-  " Python
-  " if has('python')
-  "   Plugin 'pignacio/vim-yapf-format'
-  "   Plugin 'numirias/semshi'
-  " endif
-  "
-  "
-  " Markdown
-  Plugin 'tpope/vim-markdown'
-  Plugin 'itspriddle/vim-marked.git'
-
   " Infrastructure
   Plugin 'ekalinin/Dockerfile.vim'
-  " Plugin 'hashivim/vim-terraform'
-  Plugin 'nathanielc/vim-tickscript'
+  Plugin 'hashivim/vim-terraform'
+  " Plugin 'nathanielc/vim-tickscript'
 
+  " Markdown
+  " Plugin 'tpope/vim-markdown'
+  " Plugin 'itspriddle/vim-marked.git'
+
+  " Toml
   Plugin 'cespare/vim-toml'
 endif
 

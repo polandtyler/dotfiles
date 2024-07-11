@@ -34,6 +34,7 @@ alias redis="redis-server /usr/local/etc/redis.conf"
 alias v="vagrant"
 alias hipidle="~/dotfiles/scripts/idle"
 
+alias rm="trash -F"
 alias nbun=nodemon_wrapper
 
 alias vim=nvim

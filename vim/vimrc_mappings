@@ -61,25 +61,9 @@ if has('nvim')
   nmap <BS> <C-W>h
 endif
 
-" <F7> toggles hidden characters
-map  <F7> :set list!<CR>
-imap <F7> <ESC>:set list!<CR>a
-
-" <F9> toggles word wrap
-map  <F9> :set wrap!<CR>
-imap <F9> <ESC>:set wrap!<CR>a
-
 " <F8> toggles whether the last searched string is highlighted
 map  <F8> :set hls!<CR>
 imap <F8> <ESC>:set hls!<CR>a
-
-" duplicate visual selection beneath
-nmap <Leader>y yyp
-vmap <Leader>y y'>p
-
-" duplicate and comment out orig selection
-vmap <Leader>Y y'>pgv<C-Space>'><CR>
-nmap <Leader>Y yypk<C-Space>j
 
 nnoremap <silent> <Space> :nohlsearch<cr>
 
@@ -121,4 +105,3 @@ tnoremap <C-h> <C-\><C-N><C-w>h
 tnoremap <C-j> <C-\><C-N><C-w>j
 tnoremap <C-k> <C-\><C-N><C-w>k
 tnoremap <C-l> <C-\><C-N><C-w>l
-

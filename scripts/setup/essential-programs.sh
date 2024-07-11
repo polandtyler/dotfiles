@@ -1,42 +1,44 @@
-echo "\033[32mInstall brew"
-echo "\033[0m"
+DIR="$( cd -P "$( dirname "$0" )" >/dev/null 2>&1 && pwd )"
+source "${DIR}/../includes.sh"
+
+gray "Install brew"
 
 if ! hash brew &> /dev/null; then
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  echo "\033[32mChecking if brew has issues"
-  echo "\033[0m"
+  gray "Checking if brew has issues"
   brew doctor
 else
-  echo "\033[32mSkipping install, checking up-to-date"
-  echo "\033[0m"
+  gray "Skipping install, checking up-to-date"
   brew update
 fi
 
 if ! hash neovim &> /dev/null; then
-  echo "\033[32mInstalling neovim"
-  echo "\033[0m"
+  gray "Installing neovim"
   brew install neovim/neovim/neovim
 else
-  echo "\033[32mneovim installed"
-  echo "\033[0m"
+  yellow "neovim installed"
 fi
 
 if ! hash autojump &> /dev/null; then
-  echo "\033[32mInstalling autojump"
-  echo "\033[0m"
+  gray "Installing autojump"
   brew install autojump
 else
-  echo "\033[32mAutojump installed"
-  echo "\033[0m"
+  yellow "Autojump installed"
 fi
 
-echo "\033[32mInstall tmux"
-echo "\033[0m"
+gray "Install tmux"
 
 if ! hash tmux &> /dev/null; then
   brew install tmux
 else
-  echo "\033[32mSkipping, already installed"
-  echo "\033[0m"
+  yellow "Skipping, already installed"
+fi
+
+gray "Install ripgrep"
+
+if ! hash rg &> /dev/null; then
+  brew install ripgrep
+else
+  yellow "Skipping, already installed"
 fi
 

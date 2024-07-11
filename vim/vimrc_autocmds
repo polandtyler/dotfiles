@@ -31,6 +31,9 @@ endfunction
 " END FUNCTION DECLARATIONS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" set sshconfig filetype
+autocmd BufRead,BufNewFile ssh.config setfiletype sshconfig
+
 " associate Dockerfile with sh filetype syntax
 autocmd BufRead,BufNewFile Dockerfile setfiletype sh
 
@@ -90,5 +93,5 @@ autocmd FileType go nmap <leader>e <Plug>(go-rename)
 autocmd FileType go nmap <leader>I :GoImports<CR>
 autocmd FileType go set listchars=tab:  ,trail:·
 
-autocmd FileType python nmap <buffer> <leader>k opdb.set_trace()<esc>
+autocmd FileType python nmap <buffer> <leader>k oimport pdb; pdb.set_trace() # noqa<esc>
 au BufNewFile,BufRead Jenkinsfile setf groovy

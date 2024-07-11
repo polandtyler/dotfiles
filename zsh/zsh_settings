@@ -17,20 +17,19 @@ ZSH_THEME="asimple"
 
 plugins=(autojump
          docker
-         fzf
          kubectl
-         zsh-autosuggestions
-         zsh-completions
-         zsh-syntax-highlighting)
+         ssh-agent)
+         # zsh-autosuggestions
+         # zsh-syntax-highlighting)
 
 # This has to be after plugins, just trust me
 source $ZSH/oh-my-zsh.sh
 
-GPG_TTY=$(tty)
-export GPG_TTY
-
-if [ -S "${HOME}/.gnupg/S.gpg-agent.ssh" ]; then
-  export SSH_AUTH_SOCK=${HOME}/.gnupg/S.gpg-agent.ssh
-fi
+# GPG_TTY=$(tty)
+# export GPG_TTY
+#
+# if [ -S "${HOME}/.gnupg/S.gpg-agent.ssh" ]; then
+#   export SSH_AUTH_SOCK=${HOME}/.gnupg/S.gpg-agent.ssh
+# fi
 
 autoload -U compinit && compinit

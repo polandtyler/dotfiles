@@ -6,3 +6,5 @@ source $HOME/.vim/vimrc_autocmds
 if &loadplugins
   source $HOME/.vim/vimrc_plugin_settings
 endif
+
+lua require'hop'.setup()

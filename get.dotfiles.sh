@@ -5,23 +5,23 @@
 #
 # Easy run:
 #
-#   curl https://raw.github.com/wasbazi/dotfiles/master/get.dotfiles.sh | sh
+#   curl https://raw.github.com/wasbazi/dotfiles/main/get.dotfiles.sh | sh
 
 REPO_OWNER="wasbazi"
 REPO_HOST="github.com"
 REPO_NAME="dotfiles"
-REPO_DIR=~/$REPO_NAME
-GIT_REPO_URL="git@$REPO_HOST:$REPO_OWNER/$REPO_NAME.git"
+REPO_DIR="$HOME/$REPO_NAME"
+GIT_REPO_URL="https://$REPO_HOST/$REPO_OWNER/$REPO_NAME.git"
+
+set -e
 
 if [ ! -d ~/dotfiles ]; then
-  echo "\033[32mDownloading repository."
-  echo "\033[0m"
+  gray "Downloading repository: $GIT_REPO_URL"
 
-  git clone $GIT_REPO_URL $REPO_DIR
+  git clone "$GIT_REPO_URL" "$REPO_DIR"
 fi
 
-echo "\033[32mDotfiles installed!"
-echo "\033[0m"
+green "Dotfiles installed!"
 
 SCRIPT_DIR="$REPO_DIR/scripts/setup"
 if [ ! -z "$1" ]; then
