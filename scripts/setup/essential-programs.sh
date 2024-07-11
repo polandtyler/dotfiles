@@ -4,7 +4,8 @@ source "${DIR}/../includes.sh"
 gray "Install brew"
 
 if ! hash brew &> /dev/null; then
-  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh > /tmp/brew.install.sh
+  /bin/bash -c /tmp/brew.install.sh
   gray "Checking if brew has issues"
   brew doctor
 else
