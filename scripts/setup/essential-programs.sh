@@ -8,6 +8,7 @@ if ! hash brew &> /dev/null; then
   /bin/bash /tmp/brew.install.sh
   gray "Checking if brew has issues"
   brew doctor
+  eval "$(/opt/homebrew/bin/brew shellenv)"
 else
   gray "Skipping install, checking up-to-date"
   brew update
