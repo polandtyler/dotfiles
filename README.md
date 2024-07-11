@@ -62,14 +62,18 @@ Here's a few faves:
 * [AutoClose](http://github.com/vim-scripts/AutoClose) - inserts matching bracket, paren, brace or quote
 * [tComment](http://github.com/vim-scripts/tComment) - comment plugin
 
-### Additional things to install
+### FAQ
 
-If you use this set up there are a few things that you should remember to
-install
-Having trouble with tmux? `brew install reattach-to-user-namespace`
-Color issues in iTerm? Import visor from the dotfiles folder and set minimum
-contrast to the middle
-Airline missing fonts? Include the fonts in the fonts folder to your computers
-font directory
-Missing syntax highlighting? Download the zsh plugin,
-[zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
+#### Having trouble with tmux?
+```bash
+brew install reattach-to-user-namespace
+```
+
+#### Color issues in iTerm?
+Import visor from the dotfiles folder and set minimum contrast to the middle
+
+#### Airline missing fonts?
+Include the fonts in the fonts folder to your computers font directory
+
+#### Missing syntax highlighting?
+Download the [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
