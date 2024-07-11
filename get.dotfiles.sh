@@ -66,4 +66,5 @@ fi
 $SCRIPT_DIR/essential-programs.sh
 $SCRIPT_DIR/links.sh
 $SCRIPT_DIR/oh-my-zsh.sh
+$SCRIPT_DIR/links.sh
 $SCRIPT_DIR/vim.sh

@@ -44,3 +44,4 @@ else
   yellow "Skipping, already installed"
 fi
 
+brew install reattach-to-user-namespace
