@@ -76,32 +76,26 @@ syntax on " syntax highlighting
 set t_Co=256 " 256 colors
 
 """"""""""
-" papercolor settings
-""""""""""
-" if &loadplugins
-"   let g:airline_theme='papercolor'
-"   set background=dark
-"   colorscheme PaperColor
-"
-"   " hi Normal guibg=NONE ctermbg=NONE
-"   " hi Normal ctermbg=NONE guibg=NONE
-"   " hi! NonText ctermbg=NONE guibg=NONE guifg=NONE ctermfg=NONE
-" endif
-
-""""""""""
 " vim-material settings
 """"""""""
 if &loadplugins
   let g:airline_theme='material'
-  colorscheme vim-material
+  " let g:material_theme_style = 'darker'
 
-  if (has("termguicolors"))
+  " colorscheme PaperColor
+  colorscheme retrobox
+
+  if (has('nvim'))
+    let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
+  endif
+
+  " For Neovim > 0.1.5 and Vim > patch 7.4.1799 - https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162
+  " Based on Vim patch 7.4.1770 (`guicolors` option) - https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd
+  " https://github.com/neovim/neovim/wiki/Following-HEAD#20160511
+  if (has('termguicolors'))
     set termguicolors
   endif
 
-  hi TabLineSel  ctermfg=244 ctermbg=235
-  hi TabLine     ctermfg=239 ctermbg=233
-  hi TabLineFill ctermfg=0   ctermbg=233
 endif
 
 """"""""""
@@ -137,15 +131,13 @@ autocmd FileType sh setlocal makeprg=shellcheck\ -f\ gcc\ %:S
 """"""""""""""""
 highlight SpellCap term=undercurl cterm=undercurl ctermfg=88 ctermbg=232
 highlight SpellRare term=undercurl cterm=undercurl
-
 highlight SpellLocal term=undercurl cterm=undercurl
 
-highlight Cursor guifg=green guibg=red
 set cursorline
-hi clear CursorLine
+highlight clear CursorLine
 highlight CursorLine term=bold cterm=bold ctermbg=235
-highlight CursorLineNr term=bold cterm=bold ctermbg=235 ctermfg=86
+highlight LineNr ctermbg=235 guifg=235
+highlight CursorLineNr ctermbg=235 cterm=bold guifg=green gui=bold
 highlight Search ctermfg=51 ctermbg=238 cterm=underline
 
-highlight SyntasticError cterm=underline ctermbg=232 ctermfg=203
-highlight SyntasticWarning cterm=underline ctermbg=232 ctermfg=203
+" au ColorScheme * hi Normal ctermbg=None

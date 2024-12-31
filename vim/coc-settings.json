@@ -1,10 +1,29 @@
 {
+  "coc.preferences.useQuickfixForLocations": false,
+  "diagnostic.level": "error",
+  "diagnostic.checkCurrentLine": true,
+
   "suggest.noselect": true,
+  "javascript.suggestionActions.enabled": false,
+  "typescript.suggestionActions.enabled": false,
+  "typescript.preferences.useAliasesForRenames": false,
+  "javascript.inlayHints.parameterTypes.enabled": true,
+  "javascript.inlayHints.variableTypes.enabled": true,
+  "javascript.inlayHints.propertyDeclarationTypes.enabled": true,
+  "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
+  "javascript.inlayHints.enumMemberValues.enabled": true,
+
   "python.linting.pylintEnabled": false,
   "python.linting.flake8Enabled": true,
   "python.linting.enabled": true,
   "python.pythonPath": "/Users/avi/.pyenv/shims/python",
   "python.analysis.useLibraryCodeForTypes": true,
+
   "tsserver.implicitProjectConfig.experimentalDecorators": true,
-  "rust-analyzer.diagnostics.disabled": ["replace-filter-map-next-with-find-map"]
+  "rust-analyzer.diagnostics.disabled": [
+    "replace-filter-map-next-with-find-map"
+  ],
+  "snippets.ultisnips.pythonPrompt": false,
+  "tsserver.log": "verbose",
+  "tsserver.implicitProjectConfig.target": "ESNext"
 }

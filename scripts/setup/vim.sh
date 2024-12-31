@@ -26,3 +26,7 @@ fi
 gray "Install vim plugins"
 vim +PluginInstall +qall
 green "Finished installing vim plugins"
+
+gray "Install CoC language-server dependencies..."
+(cd "${DIR}/../vim/bundle/coc.nim" && npm ci)
+green "Finished installing CoC language-server dependencies!"

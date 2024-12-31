@@ -74,6 +74,11 @@ noremap <C-C> <Esc>
 nnoremap <leader>o o<ESC>
 nnoremap <leader>O O<ESC>
 
+" For easily going to next open file
+nmap <leader>[ :next<cr>
+nmap <leader>] :prev<cr>
+
+
 " For easily finding erros
 nmap [l :lnext<cr>
 nmap ]l :lprev<cr>

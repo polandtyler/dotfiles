@@ -14,34 +14,34 @@ else
   brew update
 fi
 
-if ! hash neovim &> /dev/null; then
-  gray "Installing neovim"
-  brew install neovim/neovim/neovim
-else
-  yellow "neovim installed"
-fi
+brew_install() {
+  pkg=$1
 
-if ! hash autojump &> /dev/null; then
-  gray "Installing autojump"
-  brew install autojump
-else
-  yellow "Autojump installed"
-fi
+  if ! hash "$pkg" &> /dev/null; then
+    gray "Installing $pk"
+    brew install "${pkg}"
+  else
+    yellow "Skipping ${pkg}, already installed!"
+  fi
+}
 
-gray "Install tmux"
+declare -a packages=( neovim/neovim/neovim autojump tmux ripgrep cheat gnu-sed asdf )
+for p in "${packages[@]}"; do
+  brew_install "${p}"
+done
 
-if ! hash tmux &> /dev/null; then
-  brew install tmux
-else
-  yellow "Skipping, already installed"
-fi
-
-gray "Install ripgrep"
-
-if ! hash rg &> /dev/null; then
-  brew install ripgrep
-else
-  yellow "Skipping, already installed"
-fi
-
+brew install zsh-syntax-highlighting
 brew install reattach-to-user-namespace
+
+source "$HOME/.asdf/asdf.sh"
+
+declare -a asdf_pkgs=( python ruby node )
+for p in "${asdf_pkgs}"; do
+  asdf plugin add $p
+  asdf install $p latest
+  asdf global $p latest
+done
+
+npm install -g neovim
+pip3 install pynvim
+gem install neovim

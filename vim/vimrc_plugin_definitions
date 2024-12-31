@@ -11,28 +11,37 @@ Plugin 'airblade/vim-rooter'
 Plugin 'gmarik/Vundle.vim'
 
 if &loadplugins
+  Plugin 'pteroctopus/faster.nvim'
   " Theming
   Plugin 'vim-scripts/YankRing.vim.git'
 
-  Plugin 'hzchirs/vim-material'
+  Plugin 'kaicataldo/material.vim'
   Plugin 'NLKNguyen/papercolor-theme'  " attempt to replace material, support transparency
 
   Plugin 'vim-airline/vim-airline'
   Plugin 'vim-airline/vim-airline-themes'
 
   " Keyboard Extensions
-  Plugin 'phaazon/hop.nvim'
+  Plugin 'smoka7/hop.nvim'
   Plugin 'christoomey/vim-tmux-navigator.git'
 
   Plugin 'nathanaelkane/vim-indent-guides.git'
   Plugin 'tpope/vim-surround'
 
-  Plugin 'vim-scripts/tComment.git'
+  Plugin 'preservim/nerdcommenter'
   Plugin 'vim-scripts/ReplaceWithRegister.git'
 
   " Project navigation
-  Plugin 'scrooloose/nerdtree.git'
-  Plugin 'kien/ctrlp.vim.git'
+  " Plugin 'nvim-tree/nvim-web-devicons' " optional
+  " Plugin 'nvim-tree/nvim-tree.lua'
+  Plugin 'preservim/nerdtree'
+  Plugin 'Xuyuanp/nerdtree-git-plugin'
+  Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
+  Plugin 'ryanoasis/vim-devicons'
+  Plugin 'nvim-lua/plenary.nvim'
+  Plugin 'nvim-telescope/telescope.nvim'
+
+  Plugin 'folke/trouble.nvim'
 
   """"""""""""""""""
   " Language server

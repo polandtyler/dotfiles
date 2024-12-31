@@ -1,0 +1,105 @@
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Autocommand Helper Function(s)
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! SourceFileIfExists(filepath) abort
+    try
+        execute "source " . a:filepath
+    catch
+    endtry
+endfunction
+
+call SourceFileIfExists(".vim/vimrc.local")
+
+" " Helper function, called below with mappings
+" function! HaskellFormat(which) abort
+"   if a:which ==# 'hindent' || a:which ==# 'both'
+"     :Hindent
+"   endif
+"   if a:which ==# 'stylish' || a:which ==# 'both'
+"     silent! exe 'undojoin'
+"     silent! exe 'keepjumps %!stylish-haskell'
+"   endif
+" endfunction
+
+" Coc Helper Function(s)
+function! ListAllDiagnostics()
+  CocList diagnostics
+endfunction
+
+function! ListCurrentBufferDiagnostics()
+  CocDiagnostics
+  botright lwindow
+  silent! wincmd p
+endfunction
+
+" Use K to show documentation in preview window
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
+
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Python Helper Function(s)
+function! InsertRightAlignedNOQA()
+  normal! $
+  let a:pos = getpos('.')[2]
+  call append(line('.'), "# noqa")
+  sleep 100m
+  normal! Jx
+  execute ':Tabularize /#/l' . (73 - a:pos) . 'r1'
+endfunction
+
+function! s:locateLocalVenv()
+  let currDir = system('pwd')[:-2] .. "/"
+  let venvDir = finddir('venv', '.;')
+
+  if !empty(venvDir)
+    call coc#config("python.pythonPath", currDir .. venvDir .. "/bin/python3")
+    call coc#config("python.venvPath", currDir .. venvDir)
+  endif
+endfunction
+
+" Align Helper Function(s)
+function! EnterAlign()
+  let save_cursor = getpos(".")
+  let l:win_view = winsaveview()
+  :execute "normal vip\<Enter>="
+  call winrestview(l:win_view)
+  call setpos('.', save_cursor)
+endfunction
+
+" VIM Maps Helper Function(s)
+function! s:ShowMaps()
+  let old_reg = getreg("a")          " save the current content of register a
+  let old_reg_type = getregtype("a") " save the type of the register as well
+try
+  redir @a                           " redirect output to register a
+  " Get the list of all key mappings silently, satisfy "Press ENTER to continue"
+  silent map | call feedkeys("\<CR>")
+  redir END                          " end output redirection
+  vnew                               " new buffer in vertical window
+  put a                              " put content of register
+  " Sort on 4th character column which is the key(s)
+  %!sort -k1.4,1.4
+finally                              " Execute even if exception is raised
+  call setreg("a", old_reg, old_reg_type) " restore register a
+endtry
+endfunction
+com! ShowMaps call s:ShowMaps()      " Enable :ShowMaps to call the function
+
+nnoremap \m :ShowMaps<CR>            " Map keys to call the function
