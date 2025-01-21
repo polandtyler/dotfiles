@@ -6,9 +6,9 @@
 " the commands in this file might error if the plugins aren't loaded.
 
 """"""""""""""""""
-" Supertab
+" search pulse Plugin => make search position more obvious
 """"""""""""""""""
-let g:SuperTabDefaultCompletionType = "<c-n>"
+let g:vim_search_pulse_mode = 'pattern'
 
 """"""""""""""""""
 " NerdTree Plugin
@@ -30,6 +30,7 @@ let g:loaded_AlignMapsPlugin = 1
 """"""""""""""""""
 " IndentGuides plugin
 """"""""""""""""""
+let g:indent_guides_default_mapping = 0
 let g:indent_guides_guide_size  = 1
 let g:indent_guides_start_level = 2
 let g:indent_guides_auto_colors = 0
@@ -48,22 +49,6 @@ let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
 let g:NERDToggleCheckAllLines = 1
 
-""""""""""""""""""
-" AutoClose config
-""""""""""""""""""
-let g:AutoClosePairs = {'(': ')', '{': '}', '[': ']', '"': '"'}
-
-nmap <F2> :OpenSession<CR>
-
-""""""""""""""""""
-" Telescope
-""""""""""""""""""
-" Find files using Telescope command-line sugar.
-nnoremap <C-Space> <cmd>Telescope find_files<cr>
-nnoremap <C-g> <cmd>Telescope live_grep<cr>
-nnoremap <C-[> <cmd>Telescope buffers<cr>
-" nnoremap <C-Space> <cmd>Telescope help_tags<cr>
-
 """""""""""""""""
 " Markdown Settings
 """""""""""""""""
@@ -76,12 +61,6 @@ let g:markdown_fenced_languages = ['bash=sh', 'css', 'erb=eruby', 'javascript',
 """""""""""""""""
 map <leader>= :call EnterAlign()<cr>
 vmap <Enter> <Plug>(EasyAlign)
-
-"""""""""""""""""
-" hop.nvim
-"""""""""""""""""
-nmap <silent> <leader>hh :HopChar1<CR>
-nmap <silent> <leader>hj :HopPattern<CR>
 
 
 """""""""""""""""
@@ -183,7 +162,6 @@ let g:coc_status_warning_sign = '⚠ '
 
 nmap <silent> [d <Plug>(coc-diagnostic-prev)
 nmap <silent> ]d <Plug>(coc-diagnostic-next)
-nmap <leader>? :call ListAllDiagnostics()<CR>
 nmap <leader>d :call ListCurrentBufferDiagnostics()<CR>
 
 nmap <silent> <leader>gd <Plug>(coc-definition)

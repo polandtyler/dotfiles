@@ -1,7 +1,6 @@
 " VIM Settings
 " ------------------------------------------------------------
 
-
 set mouse=a                     " enable mouse support"
 set ttimeoutlen=20              " decrease timeout for faster insert with 'O'"
 set vb                          " enable visual bell (disable audio bell)"
@@ -79,11 +78,11 @@ set t_Co=256 " 256 colors
 " vim-material settings
 """"""""""
 if &loadplugins
-  let g:airline_theme='material'
+  " let g:airline_theme='material'
   " let g:material_theme_style = 'darker'
 
   " colorscheme PaperColor
-  colorscheme retrobox
+  " colorscheme retrobox
 
   if (has('nvim'))
     let $NVIM_TUI_ENABLE_TRUE_COLOR = 1

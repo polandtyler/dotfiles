@@ -5,78 +5,87 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'airblade/vim-rooter'
-
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
 if &loadplugins
   Plugin 'pteroctopus/faster.nvim'
   " Theming
-  Plugin 'vim-scripts/YankRing.vim.git'
+  Plugin 'RRethy/base16-nvim'
+  Plugin 'danilamihailov/beacon.nvim'  " cursor movement animations
+  Plugin 'inside/vim-search-pulse'     " -> also with search
 
-  Plugin 'kaicataldo/material.vim'
-  Plugin 'NLKNguyen/papercolor-theme'  " attempt to replace material, support transparency
+  Plugin 'vim-scripts/YankRing.vim.git'
 
   Plugin 'vim-airline/vim-airline'
   Plugin 'vim-airline/vim-airline-themes'
 
   " Keyboard Extensions
-  Plugin 'smoka7/hop.nvim'
+  Plugin 'tris203/precognition.nvim'
   Plugin 'christoomey/vim-tmux-navigator.git'
 
   Plugin 'nathanaelkane/vim-indent-guides.git'
+
   Plugin 'tpope/vim-surround'
+  Plugin 'tpope/vim-repeat'
 
   Plugin 'preservim/nerdcommenter'
   Plugin 'vim-scripts/ReplaceWithRegister.git'
 
+  Plugin 'junegunn/vim-easy-align'
+
+  " Lib
+  Plugin 'nvim-lua/plenary.nvim'
+
   " Project navigation
-  " Plugin 'nvim-tree/nvim-web-devicons' " optional
-  " Plugin 'nvim-tree/nvim-tree.lua'
   Plugin 'preservim/nerdtree'
   Plugin 'Xuyuanp/nerdtree-git-plugin'
   Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
-  Plugin 'ryanoasis/vim-devicons'
-  Plugin 'nvim-lua/plenary.nvim'
-  Plugin 'nvim-telescope/telescope.nvim'
 
-  Plugin 'folke/trouble.nvim'
+  Plugin 'ryanoasis/vim-devicons'
+
+  Plugin 'nvim-telescope/telescope.nvim'
+  Plugin 'nvim-telescope/telescope-frecency.nvim'
+  Plugin 'FabianWirth/search.nvim' " -- tab swapping search modes
+
+  " Motion
+  Plugin 'smoka7/hop.nvim'
 
   """"""""""""""""""
   " Language server
   """"""""""""""""""
   Plugin 'neoclide/coc.nvim'
 
+  " General helper for import statements
+  Plugin 'piersolenski/telescope-import.nvim'
+
+  " treesitter:
+  " -- as in a parsed tree of tokens for a language (naming is hard, lol
+  " Plugin 'nvim-treesitter/nvim-treesitter'
+
   """"""""""""""""""
   " Language specific plugins
   """"""""""""""""""
-  " Jinja2
-  " Plugin 'evidens/vim-jinja2'
-
-  " Javascript
-  " Plugin 'yuezk/vim-js'
-  " Plugin 'maxmellon/vim-jsx-pretty'
-
-  " Typescript
-  " Plugin 'HerringtonDarkholme/yats.vim'
-
-  " Go
-  Plugin 'preservim/vimux'
-  Plugin 'fatih/vim-go'
-  Plugin 'sebdah/vim-delve'
-
   " Infrastructure
   Plugin 'ekalinin/Dockerfile.vim'
   Plugin 'hashivim/vim-terraform'
-  " Plugin 'nathanielc/vim-tickscript'
 
   " Markdown
-  " Plugin 'tpope/vim-markdown'
-  " Plugin 'itspriddle/vim-marked.git'
+  Plugin 'tpope/vim-markdown'
+  Plugin 'itspriddle/vim-marked.git'
+
+  " Jinja2
+  " Plugin 'evidens/vim-jinja2'
+
+  " Go
+  " Plugin 'preservim/vimux'
+  " Plugin 'fatih/vim-go'
+  " Plugin 'sebdah/vim-delve'
+
+  " Plugin 'nathanielc/vim-tickscript'
 
   " Toml
-  Plugin 'cespare/vim-toml'
+  " Plugin 'cespare/vim-toml'
 endif
 
 " All of your Plugins must be added before the following line
