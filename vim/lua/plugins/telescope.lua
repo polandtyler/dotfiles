@@ -1,9 +1,9 @@
 function merge(t1, t2)
-	for key, value in pairs(t2) do
-	   t1[key] = value
-	end
+  for key, value in pairs(t2) do
+     t1[key] = value
+  end
 
-	return t1
+  return t1
 end
 
 local get_listed_bufs = function()
@@ -13,16 +13,56 @@ local get_listed_bufs = function()
 end
 
 -- """"""""""""""""""
+-- " Setup Custom Telescope Functions
+-- """"""""""""""""""
+-- " Additional functions for custom shortcuts
+local actions = require("telescope.actions")
+local action_state = require('telescope.actions.state')
+
+local telescope_custom_actions = {}
+
+function telescope_custom_actions._multiopen(prompt_bufnr, open_cmd)
+    local picker = action_state.get_current_picker(prompt_bufnr)
+    local selected_entry = action_state.get_selected_entry()
+    local num_selections = #picker:get_multi_selection()
+    if not num_selections or num_selections <= 1 then
+        actions.add_selection(prompt_bufnr)
+    end
+    actions.send_selected_to_qflist(prompt_bufnr)
+    vim.cmd("cfdo " .. open_cmd)
+end
+function telescope_custom_actions.multi_selection_open_vsplit(prompt_bufnr)
+    telescope_custom_actions._multiopen(prompt_bufnr, "vsplit")
+end
+function telescope_custom_actions.multi_selection_open_split(prompt_bufnr)
+    telescope_custom_actions._multiopen(prompt_bufnr, "split")
+end
+function telescope_custom_actions.multi_selection_open_tab(prompt_bufnr)
+    telescope_custom_actions._multiopen(prompt_bufnr, "tabe")
+end
+
+-- """"""""""""""""""
 -- " Setup Telescope
 -- """"""""""""""""""
 -- " Find files using Telescope command-line sugar.
+
 
 local telescope = require('telescope')
 
 -- telescope.load_extension("import")
 telescope.load_extension('frecency')
 
-local actions = require("telescope.actions")
+function smart_send_to_qflist(...)
+  actions.smart_send_to_qflist(...)
+  actions.open_qflist(...)
+end
+
+local custom_mappings = {
+    ["<C-q>"] = smart_send_to_qflist,
+
+    ["<S-DOWN>"] = require('telescope.actions').cycle_history_next,
+    ["<S-UP>"] = require('telescope.actions').cycle_history_prev,
+}
 
 telescope.setup {
   defaults = {
@@ -37,26 +77,20 @@ telescope.setup {
 
     ---@usage Mappings are fully customizable. Many familiar mapping patterns are setup as defaults.
     mappings = {
-      i = {
-        ["<C-n>"] = actions.move_selection_next,
-        ["<C-p>"] = actions.move_selection_previous,
-        ["<C-c>"] = actions.close,
-        ["<C-j>"] = actions.cycle_history_next,
-        ["<C-k>"] = actions.cycle_history_prev,
-        ["<C-q>"] = function(...)
-          actions.smart_send_to_qflist(...)
-          actions.open_qflist(...)
-        end,
-        ["<CR>"] = actions.select_default,
-      },
-      n = {
-        ["<C-n>"] = actions.move_selection_next,
-        ["<C-p>"] = actions.move_selection_previous,
-        ["<C-q>"] = function(...)
-          actions.smart_send_to_qflist(...)
-          actions.open_qflist(...)
-        end,
-      },
+      i = merge({
+      ["<C-j>"] = actions.move_selection_next,
+      ["<C-k>"] = actions.move_selection_previous,
+
+        -- ["<C-j>"] = actions.cycle_history_next,
+        -- ["<C-k>"] = actions.cycle_history_prev,
+        -- ["<CR>"] = actions.select_default,
+      }, custom_mappings),
+      n = merge({
+        ["<C-V>"] = actions.toggle_selection,
+        ["<C-J>"] = actions.toggle_selection + actions.move_selection_next,
+        ["<C-K>"] = actions.toggle_selection + actions.move_selection_previous,
+        ["<C-O>"] = telescope_custom_actions.multi_selection_open_tab,
+      }, custom_mappings),
     },
     file_ignore_patterns = {},
     path_display = { "smart" },

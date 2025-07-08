@@ -2,33 +2,23 @@
 ## PATH
 ############################################################
 
-export GOPATH="${HOME}/go"
+export GOPATH="$HOME/code/go"
 if [ -d $GOPATH/bin ]; then
   PATH="$GOPATH/bin:$PATH"
-fi
-
-if [ -d "${HOME}/.cargo/bin" ]; then
-  PATH="${HOME}/.cargo/bin/:$PATH"
 fi
 
 if [ -d "${HOME}/.poetry/bin" ]; then
   PATH="${HOME}/.poetry/bin:$PATH"
 fi
 
-# bin
-if [ -d "/opt/homebrew/bin" ]; then
-  PATH="/opt/homebrew/bin:$PATH"
+PYENV_ROOT="$HOME/.pyenv"
+if [[ -d $PYENV_ROOT ]]; then
+  export PYENV_ROOT
+  if [[ -d $PYENV_ROOT/bin ]]; then
+    export PATH="$PYENV_ROOT/bin:$PATH"
+  fi
+  eval "$(pyenv init - zsh)"
 fi
-
-# sbin
-if [ -d "/opt/homebrew/sbin" ]; then
-  PATH="/opt/homebrew/sbin:$PATH"
-fi
-
-# if [ -d "$HOME/.pyenv" ]; then
-#   eval "$(pyenv init -)"
-#   # eval "$(pyenv init --path)"
-# fi
 
 ############################################################
 ## MANPATH
@@ -50,5 +40,6 @@ export LESSOPEN='|pygmentize -g %s'
 
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 
-export GOPATH="$HOME/code/go"
 export HOMEBREW_NO_AUTO_UPDATE=1
+
+# alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'

@@ -165,6 +165,8 @@ nmap <silent> ]d <Plug>(coc-diagnostic-next)
 nmap <leader>d :call ListCurrentBufferDiagnostics()<CR>
 
 nmap <silent> <leader>gd <Plug>(coc-definition)
+nmap <silent> <leader>.gd :call CocAction('jumpDefinition', 'vsplit')<CR>
+
 nmap <silent> <leader>gy <Plug>(coc-type-definition)
 nmap <silent> <leader>gi <Plug>(coc-implementation)
 nmap <silent> <leader>gr <Plug>(coc-references)
